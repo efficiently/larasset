@@ -11,15 +11,16 @@ For more a complete description of this package, you can read the Wiki doc **[he
 
 Examples of Larasset usage.
 
-- `php artisan larasset:precompile`: Precompile assets of your application, useful in your production environment
-- `php artisan larasset:serve`:      Launch Larasset's server for serving assets, useful in your development environment
+- `php artisan larasset:precompile`: Precompile assets of your application, useful for your production environment
+- `php artisan larasset:serve`:      Launch Larasset's server for serving assets, useful for your development environment
 - `php artisan server`:              Serve your Laravel application on the PHP development server and also the Larasset's server for serving assets
 
 
 Prerequisites
 -------------
 
-You must [install Node](http://nodejs.org) on your computer (development environment).
+You must [install Node.js](http://nodejs.org) on your computer (development environment).
+
 This package is **only** compatible with **PHP >= 5.4** and **Laravel >= 4.1** framework.
 
 Installation
@@ -51,14 +52,32 @@ Installation
         ```php
            'Asset' => 'Efficiently\Larasset\Facades\Asset',
         ```
+    
+    3.	Turn on your application debug mode, in your `app/config/app.php` file:
+        
+        ```php
+            'debug' => true,
+        ```
+        
+        Note: It is strongly recommended that you turn off error detail in a production environment.
 
-    3. You will need install some [Node.js](http://nodejs.org/) modules in order to run these Larasset commands:
+    4. Setup your local environment within the `bootstrap/start.php` file:
+
+        You may determine your computer name using the `hostname` terminal command, then add it like this:
+
+        ```php
+        $env = $app->detectEnvironment(array(
+            'local' => array('your-computer-name'),
+        ));
+        ```
+
+    5. You will need install some [Node.js](http://nodejs.org/) modules in order to run these Larasset commands:
 
         ```sh
         npm install -g vendor/efficiently/larasset
         ```
 
-    4. Then run `php artisan larasset:setup`. The rest of the installation depends on
+    6. Then run `php artisan larasset:setup`. The rest of the installation depends on
     whether the asset pipeline is being used.
 
 Assets middleware server
