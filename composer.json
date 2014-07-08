@@ -1,6 +1,6 @@
 {
     "name": "efficiently/larasset",
-    "description": "Larasset is a library for Laravel 4 which manage assets in an easy way.",
+    "description": "Larasset is a library for Laravel 4+ which manage assets in an easy way.",
     "keywords": [
         "assets",
         "sprockets",

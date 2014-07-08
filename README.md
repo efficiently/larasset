@@ -7,7 +7,7 @@ The asset pipeline provides a framework to concatenate and minify or compress
 JavaScript and CSS assets. It also adds the ability to write these assets in
 other languages and pre-processors such as CoffeeScript, LESS and EJS.
 
-For more a complete description of this package, you can read the Wiki doc *[here](https://github.com/efficiently/larasset/wiki/Asset-pipeline)*.
+For more a complete description of this package, you can read the Wiki doc **[here](https://github.com/efficiently/larasset/wiki/Asset-pipeline)**.
 
 Examples of Larasset usage.
 
@@ -68,7 +68,7 @@ Run:
 
     php artisan larasset:serve
 
-NOTICE: You should use it *only* in a development environment
+NOTICE: You should use it **only** in a development environment
 
 
 Precompiling assets (Manifest usage)
