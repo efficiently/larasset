@@ -1,0 +1,12 @@
+{
+    "providers": [
+        "Efficiently\\Larasset\\LarassetServiceProvider",
+        "Efficiently\\JqueryLaravel\\JqueryLaravelServiceProvider"
+    ],
+    "aliases": [
+        {
+            "alias": "Asset",
+            "facade": "Efficiently\\Larasset\\Facades\\Asset"
+        }
+    ]
+}

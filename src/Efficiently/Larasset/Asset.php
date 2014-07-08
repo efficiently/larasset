@@ -1,0 +1,195 @@
+<?php namespace Efficiently\Larasset;
+
+use App;
+use File;
+use HTML;
+use Request;
+use URL;
+
+class Asset
+{
+    protected $args = [];
+    protected $manifests = [];
+    protected $port = 3000; // TODO: Set this value in a config option
+    protected $assetsPrefix = "/assets"; // TODO: Set this value in a config option
+
+    /**
+     * Mutiple args $dir, $path, $options
+     * @param mixed $args
+     */
+    public function __construct($args = null)
+    {
+        $this->args = is_array($args) ? $args : func_get_args();
+    }
+
+    public function manifest($args = null)
+    {
+        $args = func_get_args() ? func_get_args() : $this->args;
+        $manifestHash = md5(json_encode($args));
+        if (array_get($this->manifests, $manifestHash)) {
+            return $this->manifests[$manifestHash];
+        }
+
+        return $this->manifests[$manifestHash] = App::make('manifest', $args);
+    }
+
+    //  Borrow assets and files methods of Sprockets Manifest class and its Rails integration.
+    //  In a Rails console we can access this methods via helper.assets_manifest.assets and helper.assets_manifest.files
+    // TODO: Borrow these methods: https://github.com/CodeSleeve/asset-pipeline/blob/v1.3/src/Codesleeve/AssetPipeline/SprocketsTags.php#L132
+
+    /**
+     * Returns an HTML script tag for the sources and attributes specified as arguments.
+     *
+     * @param  array|string  $sources default "application"
+     * @param  array   $attributes HTML attributes
+     * @return string
+     */
+    public function javascriptIncludeTag($sources = "application", $attributes = [])
+    {
+        // E.g. javascript_include_tag('application'); => application-9fcd9b50e5cb047af35d3c5a4b55f73f.js
+        $args = func_get_args();
+        if (is_array(last($args))) {
+            $attributes = array_pop($args);
+        } else {
+            $attributes = [];
+        }
+        $sources = is_array($sources) ? $sources : $args;
+        if (empty($sources)) {
+            $sources = ["application"];
+        }
+
+        $defaults = ['type' => 'text/javascript'];
+        $attributes = $attributes + $defaults;
+
+        $javascript_tags = [];
+        foreach ((array) $sources as $source) {
+            $sourceName = "$source.js";
+            $javascript_tags[] = HTML::script($this->assetPath($sourceName), $attributes);
+        }
+
+        return implode($javascript_tags);
+    }
+
+    /**
+     * Returns a HTML stylesheet link tag for the sources and attributes specified as arguments.
+     *
+     * @param  array|string  $sources default "application"
+     * @param  array   $attributes HTML attributes
+     * @return string
+     */
+    public function stylesheetLinkTag($sources = "application", $attributes = [])
+    {
+        // E.g. stylesheet_link_tag('application', ['media'=>'all']); => application-fa2ce4b45369a106436f229ca9e52bee.css
+        $args = func_get_args();
+        if (is_array(last($args))) {
+            $attributes = array_pop($args);
+        } else {
+            $attributes = [];
+        }
+        $sources = is_array($sources) ? $sources : $args;
+        if (empty($sources)) {
+            $sources = ["application"];
+        }
+
+        $defaults = ['media' => 'all', 'type' => 'text/css'];
+        $attributes = $attributes + $defaults;
+
+        $stylesheet_tags = [];
+        foreach ((array) $sources as $source) {
+            $sourceName = "$source.css";
+            $stylesheet_tags[] = HTML::style($this->assetPath($sourceName), $attributes);
+        }
+
+        return implode($stylesheet_tags);
+    }
+
+    /**
+     * Returns a HTML favicon link tag for the source and attributes specified as arguments.
+     *
+     * @param  string  $source Relative URL
+     * @param  array   $attributes HTML attributes
+     * @return string
+     */
+    public function faviconLinkTag($source = null, $attributes = [])
+    {
+        // E.g. favicon_link_tag('favicon.ico', ['rel' => 'shortcut icon']); =>
+        //      <link href='http://localhost/assets/favicon.ico' rel="shortcut icon" type="image/vnd.microsoft.icon">
+        $source = $source ?: "favicon.ico";
+
+        $defaults = ['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon'];
+        $attributes = $attributes + $defaults;
+
+        return "<link href='".$this->assetPath($source)."'".HTML::attributes($attributes).">".PHP_EOL;
+    }
+
+    /**
+     * Returns an HTML image element for the source and attributes specified as arguments from the assets pipeline.
+     *
+     * @param  string  $source Relative URL
+     * @param  string  $alt
+     * @param  array   $attributes HTML attributes
+     * @return string
+     */
+    public function imageTag($source, $alt = null, $attributes = [])
+    {
+        // E.g. image_tag('logo.png', "My Logo"); => <img src="http://localhost/assets/logo-f2331bb588d007ba354e5fa406f9f4aa.png" alt="My Logo">
+        $alt = $alt ?: humanize(basename($source, ".".File::extension($source)));
+
+        return HTML::image($this->assetPath($source), $alt, $attributes);
+    }
+
+    /**
+     * Computes the path to asset in public directory.
+     *
+     * @param string $source
+     * @return string
+     */
+    public function assetPath($source)
+    {
+        $protocol = Request::secure() ? "https://" : "http://";
+        if (App::environment() !== 'production') {
+            $assetHost = $protocol.$this->getHostname().":".$this->port;
+            $assetLocation = $assetHost.$this->assetsPrefix;
+        } else {
+            $assetLocation = $this->assetsPrefix;
+            $manifest = static::manifest();
+        }
+        // TODO: Sanitize/purify $source var
+        $sourceName = $source;
+        if (isset($manifest) && $manifest->getAssets()) {
+            $sourceName = array_get($manifest->getAssets(), $sourceName, $sourceName);
+        }
+
+        $assetPath = "$assetLocation/$sourceName";
+        if (File::exists(public_path().$assetPath) || file_get_contents($assetPath)) {
+            return $assetPath;
+        } else {
+            // TODO: The root path of the Laravel application is hardcoded here, it might be a problem
+            return '/'.preg_replace('/^\//', '', $source);
+        }
+    }
+
+    /**
+     * Computes the full URL to a asset in the public directory.
+     * This will use Asset::assetPath() internally, so most of their behaviors will be the same.
+     *
+     * @param string $source
+     * @return string
+     */
+    public function assetUrl($source)
+    {
+        $assetPath = $this->assetPath($source);
+
+        return URL::asset($assetPath, Request::secure());
+    }
+
+    protected function getHostname()
+    {
+        if (Request::server('SERVER_NAME') == "0.0.0.0") {
+            return gethostname();
+        } else {
+            return Request::server('SERVER_NAME');
+        }
+    }
+
+}

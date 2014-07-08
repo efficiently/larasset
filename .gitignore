@@ -1,0 +1,17 @@
+/vendor
+.DS_Store
+
+# Ignore the default SQLite database.
+/config/db/*.sqlite3
+/config/database.yml
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+/public/assets/
+!public/assets/.gitkeep
+
+/node_modules
+/nbproject
+/*.sublime-*

@@ -1,0 +1,25 @@
+{
+  "name": "larasset-js",
+  "description": "Asset Pipeline for Laravel 4",
+  "version": "0.5.0",
+  "keywords" : ["sprockets", "assets", "minify", "uglify", "bundle", "less", "mincer", "pipeline", "laravel", "php"],
+  "homepage" : "https://github.com/efficiently/larasset",
+  "author" : "Tortue Torche <tortuetorche@spamme>",
+  "bugs" : { "url": "https://github.com/efficiently/larasset/issues" },
+  "license" : { "type": "MIT", "url": "https://github.com/efficiently/larasset/blob/master/LICENSE.txt" },
+  "repository" : { "type": "git", "url": "https://github.com/efficiently/larasset.git" },
+  "main": "./lib/larasset-js.js",
+  "bin": { "larasset": "bin/larasset.js" },
+  "dependencies": {
+    "mincer": "~1.0.5",
+    "argparse": "~0.1.15",
+    "autoprefixer": "~1.1.20140605",
+    "coffee-script": "~1.7.1",
+    "connect": "~2.19.4",
+    "csswring": "~0.2.0",
+    "ejs": "~1.0.0",
+    "glob": "~4.0.2",
+    "less": "~1.7.0",
+    "uglify-js": "~2.4.13"
+  }
+}

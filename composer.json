@@ -1,0 +1,51 @@
+{
+    "name": "efficiently/larasset",
+    "description": "Larasset is a library for Laravel 4 which manage assets in an easy way.",
+    "keywords": [
+        "assets",
+        "sprockets",
+        "mincer",
+        "node",
+        "asset_pipeline",
+        "pipeline",
+        "css",
+        "javascript",
+        "less",
+        "sass",
+        "scss",
+        "coffeescript",
+        "minify",
+        "precompile",
+        "sourcemaps"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tortue Torche",
+            "email": "tortuetorche@spam.me"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "efficiently/jquery-laravel": "*"
+    },
+    "require-dev": {
+        "illuminate/support": "~4.1",
+        "illuminate/console": "~4.1"
+    },
+    "autoload": {
+        "classmap": [
+        ],
+        "files": [
+            "src/Efficiently/Larasset/helpers.php"
+        ],
+        "psr-0": {
+            "Efficiently\\Larasset\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
