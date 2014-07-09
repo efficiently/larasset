@@ -27,8 +27,10 @@ abstract class BaseCommand extends IlluminateCommand
         if (! $this->hasLarassetJs()) {
             $this->error("Please install the Node.js module 'larasset-js'. Run in a terminal: 'npm install -g vendor/efficiently/larasset'");
             exit();
-        }        
-        
+        }
+
+        putenv('LARAVEL_ROOT='.$this->normalizePath(base_path()));
+
     }
 
     /**
@@ -94,7 +96,7 @@ abstract class BaseCommand extends IlluminateCommand
 
         return str_contains($npm, 'npm');
     }
-    
+
     /**
      * Does user have larasset-js module installed?
      *
@@ -110,5 +112,5 @@ abstract class BaseCommand extends IlluminateCommand
 
         return str_contains($larasset, 'larasset');
     }
-    
+
 }

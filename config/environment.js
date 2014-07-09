@@ -24,7 +24,8 @@ Mincer.logger.use(console);
 var environment = module.exports = new Mincer.Environment(__dirname);
 
 
-var laravelRoot = environment.laravelRoot = path.resolve((__dirname + '/../../../../').replace(/\\/g, '/')).replace(/\\/g, '/');
+var laravelRoot = environment.laravelRoot = process.env.LARAVEL_ROOT ||
+  path.resolve((__dirname + '/../../../../').replace(/\\/g, '/')).replace(/\\/g, '/');
 
 
 //
