@@ -6,7 +6,7 @@
         "sprockets",
         "mincer",
         "node",
-        "asset_pipeline",
+        "asset-pipeline",
         "pipeline",
         "css",
         "javascript",
@@ -16,7 +16,10 @@
         "coffeescript",
         "minify",
         "precompile",
-        "sourcemaps"
+        "sourcemaps",
+        "source-map",
+        "manifest",
+        "versioning"
     ],
     "license": "MIT",
     "authors": [
