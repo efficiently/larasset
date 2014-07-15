@@ -36,30 +36,19 @@ Installation
 
 2. Then install and config Larasset package
 
-    ```sh
-    composer require efficiently/larasset:dev-master
-    ```
-    
-    1. In the `composer.json`, replace the line `"minimum-stability": "stable"` by :
+    1. In the `composer.json`, replace the line `"minimum-stability": "stable"` by:
 
         ```javascript
             "minimum-stability": "dev"
         ```
 
-    2. Add these two services providers to `app/config/app.php`:
-
-        ```php
-            'Efficiently\Larasset\LarassetServiceProvider',
-            'Efficiently\JqueryLaravel\JqueryLaravelServiceProvider',
-        ```
-
-    3. Add the alias (facade) to your Laravel app config file:
-
-        ```php
-           'Asset' => 'Efficiently\Larasset\Facades\Asset',
-        ```
+    2. Install Larasset package with composer:
     
-    4.	Turn on your application debug mode, in your `app/config/app.php` file:
+        ```sh
+        composer require efficiently/larasset:dev-master
+        ```
+        
+    3. Turn on your application debug mode, in your `app/config/app.php` file:
         
         ```php
             'debug' => true,
@@ -67,7 +56,20 @@ Installation
         
         Note: It is strongly recommended that you turn off error detail in a production environment.
 
-    5. Setup your local environment within the `bootstrap/start.php` file:
+	4. Add these two services providers to `app/config/app.php`:
+
+        ```php
+                'Efficiently\Larasset\LarassetServiceProvider',
+                'Efficiently\JqueryLaravel\JqueryLaravelServiceProvider',
+        ```
+
+    5. Add the alias (facade) to your Laravel app config file:
+
+        ```php
+               'Asset' => 'Efficiently\Larasset\Facades\Asset',
+        ```
+
+    6. Setup your local environment within the `bootstrap/start.php` file:
 
         You may determine your computer name using the `hostname` terminal command, then add it like this:
 
@@ -77,14 +79,15 @@ Installation
         ));
         ```
 
-    6. You will need install some [Node.js](http://nodejs.org/) modules in order to run these Larasset commands:
+    7. You will need install some [Node.js](http://nodejs.org/) modules in order to run these Larasset commands:
 
         ```sh
         npm install -g vendor/efficiently/larasset
         ```
 
-    7. Then run `php artisan larasset:setup`. The rest of the installation depends on
-    whether the asset pipeline is being used.
+    8. Finally run `php artisan larasset:setup`.
+	
+	    The rest of the installation depends on whether the asset pipeline is being used.
 
 Assets middleware server
 ------------------------
@@ -104,7 +107,7 @@ Run:
     php artisan larasset:precompile
 
 NOTICE: You are encouraged to use it in a production environment, 
-for more informations, read the next section.
+for more informations, **read the next section**.
 
 
 Development VS Production mode
