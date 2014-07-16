@@ -58,7 +58,7 @@ abstract class AssetsCommand extends BaseCommand
 
         return $copyOptions;
     }
-    
+
     /**
      * Delete Manifest file(s) in the application's assets path
      *
@@ -66,12 +66,12 @@ abstract class AssetsCommand extends BaseCommand
      */
     protected function deleteManifest()
     {
-        $manifests = File::glob(public_path('assets/').'manifest-*.json');
+        $manifests = find_paths(public_path('assets/').'manifest-*.json');
         foreach ($manifests as $manifest) {
             File::delete($manifest);
         }
     }
-    
+
     /**
      * Delete recursively a tree of folders
      * Source: http://www.php.net/manual/fr/function.rmdir.php#110489

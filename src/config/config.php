@@ -24,7 +24,7 @@ return [
          */
         'paths' => array_merge(
             // Including assets files in `app/assets` folders of your Laravel packages.
-            File::glob(base_path().'/vendor/*/*/app/assets/*/'), [
+            find_paths(base_path().'/vendor/*/*/app/assets/*/'), [
             base_path().'/app/assets/images',
             base_path().'/app/assets/javascripts',
             base_path().'/app/assets/stylesheets',

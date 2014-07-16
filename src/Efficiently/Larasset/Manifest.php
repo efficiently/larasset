@@ -59,7 +59,7 @@ class Manifest
         // If directory is given w/o path, pick a random manifest.json location
         if ($this->dir && !$this->path) {
             // Find the first manifest.json in the directory
-            $paths = File::glob($this->dir."/manifest*.json");
+            $paths = find_paths($this->dir."/manifest*.json");
 
             if (! empty($paths)) {
                 $this->path = head($paths);

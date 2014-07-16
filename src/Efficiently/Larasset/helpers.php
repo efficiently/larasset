@@ -89,3 +89,21 @@ if (! function_exists('image_tag')) {
         return Asset::imageTag($source, $alt, $attributes);
     }
 }
+
+if (! function_exists('find_paths')) {
+
+    /**
+     * Find path names matching a given pattern
+     * and return an empty array if PHP glob() function returns false
+     *
+     * @param string  $pattern
+     * @param int     $flags
+     * @return array
+     */
+    function find_paths($pattern, $flags = 0)
+    {
+        $paths = glob($pattern, $flags);
+
+        return $paths ?: [];
+    }
+}
