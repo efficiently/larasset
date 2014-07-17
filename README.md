@@ -15,6 +15,10 @@ Examples of Larasset usage.
 - `php artisan larasset:serve`:      Launch Larasset's server for serving assets, useful for your development environment
 - `php artisan server`:              Serve your Laravel application on the PHP development server and also the Larasset's server for serving assets
 
+Demo application
+----------------
+
+You can see in action this package with this Laravel 4.2 [**demo application**](https://github.com/efficiently/laravel_larasset_app).
 
 Prerequisites
 -------------
