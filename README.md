@@ -133,4 +133,4 @@ Released under the MIT License.
 
 #### This is alpha-quality software
 It works well according to our applications. The internal API may change and other features will be added.
-We are working to make AuthorityController production quality software.
+We are working to make Larasset production quality software.
