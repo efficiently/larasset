@@ -7,7 +7,9 @@ The asset pipeline provides a framework to concatenate and minify or compress
 JavaScript and CSS assets. It also adds the ability to write these assets in
 other languages and pre-processors such as CoffeeScript, LESS and EJS.
 
-For more a complete description of this package, you can read the Wiki doc **[here](https://github.com/efficiently/larasset/wiki/Asset-pipeline)**.
+For more a complete description of this package, you can read the Wiki docs:
+* The [Asset Pipeline](https://github.com/efficiently/larasset/wiki/Asset-pipeline) Guide
+* [Working with Ajax/JavaScript in Laravel](https://github.com/efficiently/larasset/wiki/Working-with-JavaScript-and-Larasset) Guide
 
 Examples of Larasset usage.
 
@@ -23,7 +25,7 @@ You can see in action this package with this Laravel 4.2 [**demo application**](
 Prerequisites
 -------------
 
-You must [install Node.js](http://nodejs.org) on your computer (development environment).
+You must [install Node.js](http://nodejs.org) on your computer (development environment only).
 
 This package is **only** compatible with **PHP >= 5.4** and **Laravel >= 4.1** framework.
 
