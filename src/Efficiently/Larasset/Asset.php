@@ -8,6 +8,8 @@ use URL;
 
 class Asset
 {
+    const URI_REGEXP = '/^[-a-z]+:\/\/|^(?:cid|data):|^\/\//i';
+    
     protected $args = [];
     protected $manifests = [];
     protected $port = 3000; // TODO: Set this value in a config option
@@ -146,6 +148,15 @@ class Asset
      */
     public function assetPath($source)
     {
+        $source = (string) $source;
+        if (! $source) {
+            return ""; // Short circuit
+        }
+        
+        if (preg_match(static::URI_REGEXP, $source)) {
+            return $source;// Short circuit
+        }
+        
         $protocol = Request::secure() ? "https://" : "http://";
         if (App::environment() !== 'production') {
             $assetHost = $protocol.$this->getHostname().":".$this->port;
