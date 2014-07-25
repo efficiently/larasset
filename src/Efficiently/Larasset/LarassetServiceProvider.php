@@ -32,7 +32,7 @@ class LarassetServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('asset', function($app, $parameters = []) {
+        $this->app->singleton('asset', function ($app, $parameters = []) {
             if (count($parameters) < 2) {
                 $parameters = array_merge($parameters, [null]);
             }
@@ -41,7 +41,7 @@ class LarassetServiceProvider extends ServiceProvider
             return new Asset($dir, $path);
         });
 
-        $this->app->bind('manifest', function($app, $parameters = []) {
+        $this->app->bind('manifest', function ($app, $parameters = []) {
             if (count($parameters) < 2) {
                 $parameters = array_merge($parameters, [null]);
             }
@@ -60,23 +60,23 @@ class LarassetServiceProvider extends ServiceProvider
 
     protected function registerCommands()
     {
-        $this->app->bind('larasset:precompile', function($app) {
+        $this->app->bind('larasset:precompile', function ($app) {
             return new Commands\PrecompileAssetsCommand();
         });
 
-        $this->app->bind('larasset:clean', function($app) {
+        $this->app->bind('larasset:clean', function ($app) {
             return new Commands\CleanAssetsCommand();
         });
 
-        $this->app->bind('larasset:setup', function($app) {
+        $this->app->bind('larasset:setup', function ($app) {
             return new Commands\SetupAssetsCommand();
         });
 
-        $this->app->bind('larasset:serve', function($app) {
+        $this->app->bind('larasset:serve', function ($app) {
             return new Commands\ServeAssetsCommand();
         });
 
-        $this->app->bind('server', function($app) {
+        $this->app->bind('server', function ($app) {
             return new Commands\ServerCommand();
         });
 
@@ -94,5 +94,4 @@ class LarassetServiceProvider extends ServiceProvider
     {
         return [];
     }
-
 }
