@@ -27,8 +27,9 @@ class PrecompileAssetsCommand extends AssetsCommand
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name = null)
     {
+        $this->name = $name ?: $this->name;
         parent::__construct();
     }
 

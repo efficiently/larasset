@@ -64,6 +64,11 @@ class LarassetServiceProvider extends ServiceProvider
             return new Commands\PrecompileAssetsCommand();
         });
 
+        $this->app->bind('larasset-precompile', function ($app) {
+            // Alias of 'larasset:precompile' command
+            return new Commands\PrecompileAssetsCommand('larasset-precompile');
+        });
+
         $this->app->bind('larasset:clean', function ($app) {
             return new Commands\CleanAssetsCommand();
         });
@@ -76,12 +81,19 @@ class LarassetServiceProvider extends ServiceProvider
             return new Commands\ServeAssetsCommand();
         });
 
+        $this->app->bind('larasset-serve', function ($app) {
+            // Alias of 'larasset:serve' command
+            return new Commands\ServeAssetsCommand('larasset-serve');
+        });
+
         $this->app->bind('server', function ($app) {
             return new Commands\ServerCommand();
         });
 
         $this->commands([
-            'larasset:precompile', 'larasset:clean', 'larasset:setup', 'larasset:serve', 'server'
+            'larasset:precompile', 'larasset-precompile',
+            'larasset:clean', 'larasset:setup',
+            'larasset:serve', 'larasset-serve', 'server'
         ]);
     }
 
