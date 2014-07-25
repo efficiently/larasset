@@ -27,9 +27,8 @@ class ServeAssetsCommand extends AssetsCommand
      *
      * @return void
      */
-    public function __construct($name = null)
+    public function __construct()
     {
-        $this->name = $name ?: $this->name;
         parent::__construct();
     }
 
