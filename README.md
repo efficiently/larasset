@@ -1,6 +1,8 @@
 Larasset
 ========
 
+[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=master)](https://travis-ci.org/efficiently/larasset)
+
 The Asset Pipeline for Laravel >= 4.1 !
 
 The asset pipeline provides a framework to concatenate and minify or compress
@@ -49,17 +51,17 @@ Installation
         ```
 
     2. Install Larasset package with composer:
-    
+
         ```sh
         composer require efficiently/larasset:dev-master
         ```
-        
+
     3. Turn on your application debug mode, in your `app/config/app.php` file:
-        
+
         ```php
             'debug' => true,
         ```
-        
+
         Note: It is strongly recommended that you turn off error detail in a production environment.
 
 	4. Add these two services providers to `app/config/app.php`:
@@ -92,7 +94,7 @@ Installation
         ```
 
     8. Finally run `php artisan larasset:setup`.
-	
+
 	    The rest of the installation depends on whether the asset pipeline is being used.
 
 Assets middleware server
@@ -112,7 +114,7 @@ Run:
 
     php artisan larasset:precompile
 
-NOTICE: You are encouraged to use it in a production environment, 
+NOTICE: You are encouraged to use it in a production environment,
 for more informations, **read the next section**.
 
 
