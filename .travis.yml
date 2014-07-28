@@ -4,10 +4,14 @@ php:
   - 5.4
   - 5.5
   - 5.6
-  - hhvm
 
 before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - wget http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar
+  - java -jar selenium-server-standalone-2.42.2.jar -port 4444 &
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
+  - chmod +x ./ci_script
 
-script: phpunit
+script: ./ci_script

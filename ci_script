@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cd ..
+git clone https://github.com/efficiently/jquery-laravel.git
+git clone https://github.com/efficiently/laravel_larasset_app.git
+
+cd laravel_larasset_app
+composer self-update
+composer install --prefer-source --no-interaction --dev
+rm vendor/efficiently/jquery-laravel -Rf
+rm vendor/efficiently/larasset -Rf
+cp -pR ../jquery-laravel vendor/efficiently
+cp -pR ../larasset vendor/efficiently
+npm install -g vendor/efficiently/larasset
+./ci_script # Run acceptance tests of the Larasset demo
