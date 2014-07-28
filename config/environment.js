@@ -93,7 +93,7 @@ environment.enable("autoprefixer");
 
 process.env.NODE_ENV = process.env.LARASSET_ENV || 'development';
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === (process.env.ASSETS_ENV || 'production')) {
 
   //
   // Enable JS and CSS compression
