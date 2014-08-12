@@ -130,11 +130,19 @@ option, like so:
     php artisan larasset:precompile --environment production
 
 
+Credits
+-------
+
+* The original [Asset Pipeline](https://github.com/rails/sprockets-rails) (Sprockets) from the Ruby on Rails framework.
+* A Node.js port of the Asset Pipeline: [Mincer](https://github.com/nodeca/mincer)
+* A  PHP port of the [Asset Pipeline](https://github.com/CodeSleeve/asset-pipeline)
+
+
 Acknowledgements
 ----------------
 
 Released under the MIT License.
 
-#### This is alpha-quality software
-It works well according to our applications. The internal API may change and other features will be added.
+#### This is beta-quality software
+It works well according to our tests. The internal API may change and other features will be added.
 We are working to make Larasset production quality software.
