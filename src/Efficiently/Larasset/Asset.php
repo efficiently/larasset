@@ -1,6 +1,7 @@
 <?php namespace Efficiently\Larasset;
 
 use App;
+use Config;
 use File;
 use HTML;
 use Request;
@@ -13,7 +14,8 @@ class Asset
     protected $args = [];
     protected $manifests = [];
     protected $port = 3000; // TODO: Set this value in a config option
-    protected $assetsPrefix = "/assets"; // TODO: Set this value in a config option
+    protected $assetsPrefix;
+    protected $assetsHost;
 
     /**
      * Mutiple args $dir, $path, $options
@@ -22,6 +24,14 @@ class Asset
     public function __construct($args = null)
     {
         $this->args = is_array($args) ? $args : func_get_args();
+
+        $this->assetsPrefix = function () {
+            return Config::get('larasset::prefix', '/assets');
+        };
+
+        $this->assetsHost = function () {
+            return Config::get('larasset::host');
+        };
     }
 
     public function manifest($args = null)
@@ -60,13 +70,15 @@ class Asset
             $sources = ["application"];
         }
 
+        $assetsOptions = ['host' => array_pull($attributes, 'host', $this->assetsHost)];
+
         $defaults = ['type' => 'text/javascript'];
         $attributes = $attributes + $defaults;
 
         $javascript_tags = [];
         foreach ((array) $sources as $source) {
             $sourceName = "$source.js";
-            $javascript_tags[] = HTML::script($this->assetPath($sourceName), $attributes);
+            $javascript_tags[] = HTML::script($this->assetPath($sourceName, $assetsOptions), $attributes);
         }
 
         return implode($javascript_tags);
@@ -93,13 +105,15 @@ class Asset
             $sources = ["application"];
         }
 
+        $assetsOptions = ['host' => array_pull($attributes, 'host', $this->assetsHost)];
+
         $defaults = ['media' => 'all', 'type' => 'text/css'];
         $attributes = $attributes + $defaults;
 
         $stylesheet_tags = [];
         foreach ((array) $sources as $source) {
             $sourceName = "$source.css";
-            $stylesheet_tags[] = HTML::style($this->assetPath($sourceName), $attributes);
+            $stylesheet_tags[] = HTML::style($this->assetPath($sourceName, $assetsOptions), $attributes);
         }
 
         return implode($stylesheet_tags);
@@ -118,10 +132,12 @@ class Asset
         //      <link href='http://localhost/assets/favicon.ico' rel="shortcut icon" type="image/vnd.microsoft.icon">
         $source = $source ?: "favicon.ico";
 
+        $assetsOptions = ['host' => array_pull($attributes, 'host', $this->assetsHost)];
+
         $defaults = ['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon'];
         $attributes = $attributes + $defaults;
 
-        return "<link href='".$this->assetPath($source)."'".HTML::attributes($attributes).">".PHP_EOL;
+        return "<link href='".$this->assetPath($source, $assetsOptions)."'".HTML::attributes($attributes).">".PHP_EOL;
     }
 
     /**
@@ -134,19 +150,22 @@ class Asset
      */
     public function imageTag($source, $alt = null, $attributes = [])
     {
+        $assetsOptions = ['host' => array_pull($attributes, 'host', $this->assetsHost)];
+
         // E.g. image_tag('logo.png', "My Logo"); => <img src="http://localhost/assets/logo-f2331bb588d007ba354e5fa406f9f4aa.png" alt="My Logo">
         $alt = $alt ?: humanize(basename($source, ".".File::extension($source)));
 
-        return HTML::image($this->assetPath($source), $alt, $attributes);
+        return HTML::image($this->assetPath($source, $assetsOptions), $alt, $attributes);
     }
 
     /**
      * Computes the path to asset in public directory.
      *
      * @param string $source
+     * @param array  $options
      * @return string
      */
-    public function assetPath($source)
+    public function assetPath($source, array $options = [])
     {
         $source = (string) $source;
         if (! $source) {
@@ -157,12 +176,22 @@ class Asset
             return $source;// Short circuit
         }
 
+        $assetPrefix = array_get($options, 'prefix', $this->assetsPrefix);
+        if (is_callable($assetPrefix) && is_object($assetPrefix)) {
+            $assetPrefix = $assetPrefix();
+        }
+
+        $assetHost = array_get($options, 'host');
+        if (is_callable($assetHost) && is_object($assetHost)) {
+            $assetHost = $assetHost();
+        }
+
         $protocol = Request::secure() ? "https://" : "http://";
         if (App::environment() !== (getenv('ASSETS_ENV') ?: 'production')) {
-            $assetHost = $protocol.$this->getHostname().":".$this->port;
-            $assetLocation = $assetHost.$this->assetsPrefix;
+            $assetHost = $assetHost ?: $protocol.$this->getHostname().":".$this->port;
+            $assetLocation = $assetHost.$assetPrefix;
         } else {
-            $assetLocation = $this->assetsPrefix;
+            $assetLocation = $assetHost.$assetPrefix;
             $manifest = static::manifest();
         }
         // TODO: Sanitize/purify $source var
@@ -172,7 +201,7 @@ class Asset
         }
 
         $assetPath = "$assetLocation/$sourceName";
-        if (File::exists(public_path().$assetPath) || file_get_contents($assetPath)) {
+        if (File::exists(public_path().$assetPath) || preg_match(static::URI_REGEXP, $assetPath)) {
             return $assetPath;
         } else {
             // TODO: The root path of the Laravel application is hardcoded here, it might be a problem
@@ -185,11 +214,12 @@ class Asset
      * This will use Asset::assetPath() internally, so most of their behaviors will be the same.
      *
      * @param string $source
+     * @param array  $options
      * @return string
      */
-    public function assetUrl($source)
+    public function assetUrl($source, array $options = [])
     {
-        $assetPath = $this->assetPath($source);
+        $assetPath = $this->assetPath($source, $options);
 
         return URL::asset($assetPath, Request::secure());
     }

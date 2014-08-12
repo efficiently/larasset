@@ -6,11 +6,12 @@ if (! function_exists('asset_path')) {
      * Computes the path to asset in public directory.
      *
      * @param string $source
+     * @param array  $options
      * @return string
      */
-    function asset_path($source)
+    function asset_path($source, array $options = [])
     {
-        return Asset::assetPath($source);
+        return Asset::assetPath($source, $options);
     }
 }
 
@@ -21,11 +22,12 @@ if (! function_exists('asset_url')) {
      * This will use Asset::assetPath() internally, so most of their behaviors will be the same.
      *
      * @param string $source
+     * @param array  $options
      * @return string
      */
-    function asset_url($source)
+    function asset_url($source, array $options = [])
     {
-        return Asset::assetUrl($source);
+        return Asset::assetUrl($source, $options);
     }
 }
 

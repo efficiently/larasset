@@ -2,7 +2,7 @@
 
 return [
 
-    	/**
+        /**
          * Changing the assets Path
          *
          * The public path that Larasset uses by default is /assets.
@@ -12,6 +12,30 @@ return [
          * this path or you wish to use this path for a new resource.
          */
         'prefix' => '/assets',
+
+        /**
+         * By default, Larasset links to these assets on the current host
+         * in the public folder, but you can direct Larasset to link to assets
+         * from a dedicated asset server by setting `larasset::host`
+         * in the package configuration, typically in
+         * `app/config/packages/efficiently/larasset/config.php`.
+         * For example, you'd define `http://assets.example.com` to be your asset host
+         * this way:
+         *
+         *     Config::set('larasset::host', 'http://assets.example.com');
+         *
+         * Helpers take that into account:
+         *
+         *     image_tag("logo.png");
+         *     // -> <img src="http://assets.example.com/assets/logo.png" alt="Logo">
+         *     stylesheet_link_tag("application");
+         *     // -> <link media="all" type="text/css" rel="stylesheet" href="http://assets.example.com/assets/application.css">
+         *
+         * sets the host for the assets. Useful when CDNs are used for hosting
+         * assets, or when you want to work around the concurrency constraints builtin in browsers
+         * using different domain aliases.
+         */
+        'host' => null,
 
         /**
          * Search Paths
