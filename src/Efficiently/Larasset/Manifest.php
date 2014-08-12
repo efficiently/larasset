@@ -13,7 +13,8 @@ use File;
 // `getAssets()` and `getFiles()` for more infomation about the structure.
 class Manifest
 {
-    public $path, $dir;
+    public $path;
+    public $dir;
     protected $data = [];
 
     // Create new Manifest associated with an `path` is
@@ -126,5 +127,4 @@ class Manifest
     {
         return str_replace('\\', '/', $path);
     }
-
 }

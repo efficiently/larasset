@@ -3,7 +3,8 @@
 use Illuminate\Console\Command as IlluminateCommand;
 
 /**
- * Borrowed from: https://github.com/CodeSleeve/asset-pipeline/blob/v2.0.3/src/Codesleeve/AssetPipeline/Commands/AssetsSetupCommand.php
+ * Borrowed from:
+ * https://github.com/CodeSleeve/asset-pipeline/blob/v2.0.3/src/Codesleeve/AssetPipeline/Commands/AssetsSetupCommand.php
  */
 class SetupAssetsCommand extends IlluminateCommand
 {

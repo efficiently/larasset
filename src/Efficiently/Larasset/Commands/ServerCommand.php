@@ -101,5 +101,4 @@ class ServerCommand extends BaseCommand
             shell_exec(sprintf('%s > '.$output.' 2>&1 &', $command));
         }
     }
-
 }

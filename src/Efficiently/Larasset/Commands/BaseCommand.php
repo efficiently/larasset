@@ -49,7 +49,8 @@ abstract class BaseCommand extends IlluminateCommand
      *
      * @return bool
      */
-    protected function useWindows() {
+    protected function useWindows()
+    {
         $sys = strtoupper(PHP_OS);
 
         return (substr($sys, 0, 3) == "WIN");
@@ -112,5 +113,4 @@ abstract class BaseCommand extends IlluminateCommand
 
         return str_contains($larasset, 'larasset');
     }
-
 }

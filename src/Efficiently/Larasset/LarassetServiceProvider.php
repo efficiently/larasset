@@ -52,7 +52,8 @@ class LarassetServiceProvider extends ServiceProvider
 
         // TODO: Allow to register or not Larasset commands in production env with a config option
         if ($this->app->environment() !== 'production' && $this->app['config']->get('app.debug')) {
-            $this->registerCommands(); // For security reasons Larasset commands aren't available in production environment
+            // For security reasons Larasset commands aren't available in production environment
+            $this->registerCommands();
         }
 
         // TODO: Allow to publish default package.json in the config path of the package

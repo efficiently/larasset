@@ -48,18 +48,20 @@ return [
          */
         'paths' => array_merge(
             // Including assets files in `app/assets` folders of your Laravel packages.
-            find_paths(base_path().'/vendor/*/*/app/assets/*/'), [
-            base_path().'/app/assets/images',
-            base_path().'/app/assets/javascripts',
-            base_path().'/app/assets/stylesheets',
-            base_path().'/lib/assets/images',
-            base_path().'/lib/assets/javascripts',
-            base_path().'/lib/assets/stylesheets',
-            base_path().'/vendor/assets/images',
-            base_path().'/vendor/assets/javascripts',
-            base_path().'/vendor/assets/stylesheets',
-            // base_path().'/vendor/videoplayer/flash',
-        ]),
+            find_paths(base_path().'/vendor/*/*/app/assets/*/'),
+            [
+                base_path().'/app/assets/images',
+                base_path().'/app/assets/javascripts',
+                base_path().'/app/assets/stylesheets',
+                base_path().'/lib/assets/images',
+                base_path().'/lib/assets/javascripts',
+                base_path().'/lib/assets/stylesheets',
+                base_path().'/vendor/assets/images',
+                base_path().'/vendor/assets/javascripts',
+                base_path().'/vendor/assets/stylesheets',
+                // base_path().'/vendor/videoplayer/flash',
+            ]
+        ),
 
         /**
          * Precompile files
@@ -79,4 +81,3 @@ return [
         ],
 
 ];
-

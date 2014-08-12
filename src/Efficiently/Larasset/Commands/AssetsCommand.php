@@ -9,7 +9,8 @@ abstract class AssetsCommand extends BaseCommand
      *
      * @return void
      */
-    protected function copyAssets() {
+    protected function copyAssets()
+    {
         $packagePath = $this->packagePath();
 
         if ($this->useWindows()) {
@@ -18,8 +19,12 @@ abstract class AssetsCommand extends BaseCommand
             $source = $packagePath."/public/assets/";
         }
         $destination = $this->normalizePath(public_path('assets'));
-        if (! File::exists($source)) { File::makeDirectory($source); }
-        if (! File::exists($destination)) { File::makeDirectory($destination); }
+        if (! File::exists($source)) {
+            File::makeDirectory($source);
+        }
+        if (! File::exists($destination)) {
+            File::makeDirectory($destination);
+        }
         $copyAssetsCommand = $this->copyCommand().' '.$this->copyOptions().' "'.$source.'" "'.$destination.'" > nul';
 
         shell_exec($copyAssetsCommand);
@@ -33,9 +38,9 @@ abstract class AssetsCommand extends BaseCommand
     {
         $sys = strtoupper(PHP_OS);
 
-        if(substr($sys, 0, 3) == "WIN") {
+        if (substr($sys, 0, 3) == "WIN") {
             $copyCommand = "xcopy";
-        } elseif($sys == "LINUX") {
+        } elseif ($sys == "LINUX") {
             $copyCommand = "cp";
         } else {
             $copyCommand = "cp"; // MacOS
@@ -49,9 +54,11 @@ abstract class AssetsCommand extends BaseCommand
         $sys = strtoupper(PHP_OS);
 
         if (substr($sys, 0, 3) == "WIN") {
-            $copyOptions = "/E /V /Y"; // Copy all files recursively, verifies each new file and overwrites existing files without prompting you.
+            // Copy all files recursively, verifies each new file and overwrites existing files without prompting you.
+            $copyOptions = "/E /V /Y";
         } elseif ($sys == "LINUX") {
-            $copyOptions = "-pRT"; // Preserve date creation attribute, copy all files recursively and treat destination as a normal file
+            // Preserve date creation attribute, copy all files recursively and treat destination as a normal file
+            $copyOptions = "-pRT";
         } else {
             $copyOptions = "-pR"; // MacOS
         }
@@ -88,5 +95,4 @@ abstract class AssetsCommand extends BaseCommand
 
         return rmdir($dir);
     }
-
 }

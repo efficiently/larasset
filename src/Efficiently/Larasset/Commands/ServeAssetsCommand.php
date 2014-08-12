@@ -49,7 +49,7 @@ class ServeAssetsCommand extends AssetsCommand
         $packagePath = $this->packagePath();
 
         $searchPaths = array_map(
-            function($path) {
+            function ($path) {
                 return $this->normalizePath($path);
             },
             Config::get('larasset::paths', [])
@@ -89,5 +89,4 @@ class ServeAssetsCommand extends AssetsCommand
             ['environment', null, InputOption::VALUE_OPTIONAL, 'Specifies the environment to run this server under (test/development/production).', 'development'],
         ];
     }
-
 }

@@ -91,5 +91,4 @@ class CleanAssetsCommand extends AssetsCommand
             // ['example', null, InputOption::VALUE_OPTIONAL, 'An example option.', 'default value'],
         ];
     }
-
 }

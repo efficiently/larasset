@@ -45,14 +45,14 @@ class PrecompileAssetsCommand extends AssetsCommand
         $packagePath = $this->packagePath();
 
         $searchPaths = array_map(
-            function($path) {
+            function ($path) {
                 return $this->normalizePath($path);
             },
             Config::get('larasset::paths', [])
         );
         putenv('LARASSET_PATH='.implode('|', $searchPaths));
         $precompileFiles = array_map(
-            function($path) {
+            function ($path) {
                 return $this->normalizePath($path);
             },
             Config::get('larasset::precompile', [])
@@ -94,5 +94,4 @@ class PrecompileAssetsCommand extends AssetsCommand
 
         ];
     }
-
 }
