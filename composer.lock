@@ -1,44 +1,36 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "6b342bb8732af29700d99979b523422b",
+    "hash": "e336b70948cc60ea9182c6350dde6165",
     "packages": [
-
-    ],
-    "packages-dev": [
         {
-            "name": "illuminate/console",
-            "version": "v4.1.29",
-            "target-dir": "Illuminate/Console",
+            "name": "efficiently/jquery-laravel",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/illuminate/console.git",
-                "reference": "e2f771cf8afaa3febc71a97ba4d9be21e7bd377b"
+                "url": "https://github.com/efficiently/jquery-laravel.git",
+                "reference": "0928d4951340b79b52365f92ab94320ec32a8ca4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/console/zipball/e2f771cf8afaa3febc71a97ba4d9be21e7bd377b",
-                "reference": "e2f771cf8afaa3febc71a97ba4d9be21e7bd377b",
+                "url": "https://api.github.com/repos/efficiently/jquery-laravel/zipball/0928d4951340b79b52365f92ab94320ec32a8ca4",
+                "reference": "0928d4951340b79b52365f92ab94320ec32a8ca4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "symfony/console": "2.4.*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.0.*"
+                "illuminate/support": "~4.1",
+                "php": ">=5.4.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.1-dev"
-                }
-            },
             "autoload": {
+                "files": [
+                    "src/Efficiently/JqueryLaravel/helpers.php"
+                ],
                 "psr-0": {
-                    "Illuminate\\Console": ""
+                    "Efficiently\\JqueryLaravel\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -47,42 +39,51 @@
             ],
             "authors": [
                 {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com",
-                    "homepage": "https://github.com/taylorotwell",
-                    "role": "Creator of Laravel"
+                    "name": "Tortue Torche",
+                    "email": "tortuetorche@spam.me"
                 }
             ],
-            "time": "2014-04-18 21:49:31"
+            "description": "This package provides jQuery and the jQuery-ujs driver for your Laravel 4+ application.",
+            "keywords": [
+                "ajax",
+                "asset_pipeline",
+                "assets",
+                "javascript",
+                "jquery",
+                "larasset",
+                "laravel",
+                "pipeline",
+                "ujs",
+                "unobtrusive"
+            ],
+            "time": "2014-08-12 14:19:51"
         },
         {
             "name": "illuminate/support",
-            "version": "v4.1.29",
+            "version": "v4.2.8",
             "target-dir": "Illuminate/Support",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "7716337401e573ba69923d335c0ee01fd5448df7"
+                "reference": "8702d655da1f7502037a2206df38399656ff35ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/7716337401e573ba69923d335c0ee01fd5448df7",
-                "reference": "7716337401e573ba69923d335c0ee01fd5448df7",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/8702d655da1f7502037a2206df38399656ff35ae",
+                "reference": "8702d655da1f7502037a2206df38399656ff35ae",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "jeremeamia/superclosure": "1.0.*",
-                "mockery/mockery": "0.9.*",
-                "patchwork/utf8": "1.1.*",
-                "phpunit/phpunit": "4.0.*"
+                "jeremeamia/superclosure": "~1.0",
+                "patchwork/utf8": "1.1.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -100,41 +101,85 @@
             "authors": [
                 {
                     "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com",
-                    "homepage": "https://github.com/taylorotwell",
-                    "role": "Creator of Laravel"
+                    "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-05-02 18:11:11"
+            "time": "2014-08-05 12:08:34"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "illuminate/console",
+            "version": "v4.2.8",
+            "target-dir": "Illuminate/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/console.git",
+                "reference": "26ab2d3f5223851ac537668c778f13cad8742e4c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/console/zipball/26ab2d3f5223851ac537668c778f13cad8742e4c",
+                "reference": "26ab2d3f5223851ac537668c778f13cad8742e4c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/console": "2.5.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Illuminate\\Console": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "time": "2014-08-01 12:29:44"
         },
         {
             "name": "symfony/console",
-            "version": "v2.4.4",
+            "version": "v2.5.3",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "2e452005b1e1d003d23702d227e23614679eb5ca"
+                "reference": "cd2d1e4bac2206b337326b0140ff475fe9ad5f63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/2e452005b1e1d003d23702d227e23614679eb5ca",
-                "reference": "2e452005b1e1d003d23702d227e23614679eb5ca",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/cd2d1e4bac2206b337326b0140ff475fe9ad5f63",
+                "reference": "cd2d1e4bac2206b337326b0140ff475fe9ad5f63",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
+                "psr/log": "~1.0",
                 "symfony/event-dispatcher": "~2.1"
             },
             "suggest": {
+                "psr/log": "For using the console logger",
                 "symfony/event-dispatcher": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -148,19 +193,17 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-04-27 13:34:57"
+            "time": "2014-08-05 09:00:40"
         }
     ],
     "aliases": [
@@ -170,6 +213,7 @@
     "stability-flags": [
 
     ],
+    "prefer-stable": true,
     "platform": {
         "php": ">=5.4.0"
     },
