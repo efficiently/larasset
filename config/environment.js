@@ -51,9 +51,9 @@ environment.enable('source_maps');
 // environment.appendPath(laravelRoot + '/lib/assets/images');
 // environment.appendPath(laravelRoot + '/lib/assets/javascripts');
 // environment.appendPath(laravelRoot + '/lib/assets/stylesheets');
-// environment.appendPath(laravelRoot + '/vendor/assets/images');
-// environment.appendPath(laravelRoot + '/vendor/assets/javascripts');
-// environment.appendPath(laravelRoot + '/vendor/assets/stylesheets');
+// environment.appendPath(laravelRoot + '/provider/assets/images');
+// environment.appendPath(laravelRoot + '/provider/assets/javascripts');
+// environment.appendPath(laravelRoot + '/provider/assets/stylesheets');
 
 //
 // Cache compiled assets.

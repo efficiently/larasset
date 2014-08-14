@@ -34,68 +34,60 @@ This package is **only** compatible with **PHP >= 5.4** and **Laravel >= 4.1** f
 Installation
 ------------
 
-1. In the `.gitignore` file of your Laravel application, replace the line `/vendor` by :
+ ### Install and config Larasset package
 
+1. In the `composer.json`, replace the line `"minimum-stability": "stable"` by:
+
+    ```javascript
+        "minimum-stability": "dev"
     ```
-    /vendor/*
-    !/vendor
-    !/vendor/assets/
+
+2. Install Larasset package with composer:
+
+    ```sh
+    composer require efficiently/larasset:dev-master
     ```
 
-2. Then install and config Larasset package
+3. Turn on your application debug mode, in your `app/config/app.php` file:
 
-    1. In the `composer.json`, replace the line `"minimum-stability": "stable"` by:
+    ```php
+        'debug' => true,
+    ```
 
-        ```javascript
-            "minimum-stability": "dev"
-        ```
+    Note: It is strongly recommended that you turn off error detail in a production environment.
 
-    2. Install Larasset package with composer:
+4. Add these two services providers to `app/config/app.php`:
 
-        ```sh
-        composer require efficiently/larasset:dev-master
-        ```
+    ```php
+            'Efficiently\Larasset\LarassetServiceProvider',
+            'Efficiently\JqueryLaravel\JqueryLaravelServiceProvider',
+    ```
 
-    3. Turn on your application debug mode, in your `app/config/app.php` file:
+5. Add the alias (facade) to your Laravel app config file:
 
-        ```php
-            'debug' => true,
-        ```
+    ```php
+           'Asset' => 'Efficiently\Larasset\Facades\Asset',
+    ```
 
-        Note: It is strongly recommended that you turn off error detail in a production environment.
+6. Setup your local environment within the `bootstrap/start.php` file:
 
-	4. Add these two services providers to `app/config/app.php`:
+    You may determine your computer name using the `hostname` terminal command, then add it like this:
 
-        ```php
-                'Efficiently\Larasset\LarassetServiceProvider',
-                'Efficiently\JqueryLaravel\JqueryLaravelServiceProvider',
-        ```
+    ```php
+    $env = $app->detectEnvironment(array(
+        'local' => array('your-computer-name'),
+    ));
+    ```
 
-    5. Add the alias (facade) to your Laravel app config file:
+7. You will need install some [Node.js](http://nodejs.org/) modules in order to run these Larasset commands:
 
-        ```php
-               'Asset' => 'Efficiently\Larasset\Facades\Asset',
-        ```
+    ```sh
+    npm install -g vendor/efficiently/larasset
+    ```
 
-    6. Setup your local environment within the `bootstrap/start.php` file:
+8. Finally run `php artisan larasset:setup`.
 
-        You may determine your computer name using the `hostname` terminal command, then add it like this:
-
-        ```php
-        $env = $app->detectEnvironment(array(
-            'local' => array('your-computer-name'),
-        ));
-        ```
-
-    7. You will need install some [Node.js](http://nodejs.org/) modules in order to run these Larasset commands:
-
-        ```sh
-        npm install -g vendor/efficiently/larasset
-        ```
-
-    8. Finally run `php artisan larasset:setup`.
-
-	    The rest of the installation depends on whether the asset pipeline is being used.
+    The rest of the installation depends on whether the asset pipeline is being used.
 
 Assets middleware server
 ------------------------

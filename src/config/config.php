@@ -56,10 +56,10 @@ return [
                 base_path().'/lib/assets/images',
                 base_path().'/lib/assets/javascripts',
                 base_path().'/lib/assets/stylesheets',
-                base_path().'/vendor/assets/images',
-                base_path().'/vendor/assets/javascripts',
-                base_path().'/vendor/assets/stylesheets',
-                // base_path().'/vendor/videoplayer/flash',
+                base_path().'/provider/assets/images',
+                base_path().'/provider/assets/javascripts',
+                base_path().'/provider/assets/stylesheets',
+                // base_path().'/provider/videoplayer/flash',
             ]
         ),
 
