@@ -22,7 +22,8 @@ Examples of Larasset usage.
 Demo application
 ----------------
 
-You can see in action this package with this Laravel 4.2 [**demo application**](https://github.com/efficiently/laravel_larasset_app).
+You can see in action this package with this [**online demo**](http://larasset.eu1.frbit.net/messages).
+And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app).
 
 Prerequisites
 -------------
