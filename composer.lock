@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e336b70948cc60ea9182c6350dde6165",
+    "hash": "413a8a258da9f21fbaceb42b4c609bac",
     "packages": [
         {
             "name": "efficiently/jquery-laravel",
-            "version": "1.0.0",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/efficiently/jquery-laravel.git",
-                "reference": "0928d4951340b79b52365f92ab94320ec32a8ca4"
+                "reference": "60aa8326f7a938360dc26df8e04b35c5608cef9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/efficiently/jquery-laravel/zipball/0928d4951340b79b52365f92ab94320ec32a8ca4",
-                "reference": "0928d4951340b79b52365f92ab94320ec32a8ca4",
+                "url": "https://api.github.com/repos/efficiently/jquery-laravel/zipball/60aa8326f7a938360dc26df8e04b35c5608cef9c",
+                "reference": "60aa8326f7a938360dc26df8e04b35c5608cef9c",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
             "description": "This package provides jQuery and the jQuery-ujs driver for your Laravel 4+ application.",
             "keywords": [
                 "ajax",
-                "asset_pipeline",
+                "asset pipeline",
                 "assets",
                 "javascript",
                 "jquery",
@@ -56,21 +56,21 @@
                 "ujs",
                 "unobtrusive"
             ],
-            "time": "2014-08-12 14:19:51"
+            "time": "2014-09-16 16:17:56"
         },
         {
             "name": "illuminate/support",
-            "version": "v4.2.8",
+            "version": "v4.2.9",
             "target-dir": "Illuminate/Support",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "8702d655da1f7502037a2206df38399656ff35ae"
+                "reference": "b6716d34afce6e69523725f2534a5c3a54dba964"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/8702d655da1f7502037a2206df38399656ff35ae",
-                "reference": "8702d655da1f7502037a2206df38399656ff35ae",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/b6716d34afce6e69523725f2534a5c3a54dba964",
+                "reference": "b6716d34afce6e69523725f2534a5c3a54dba964",
                 "shasum": ""
             },
             "require": {
@@ -104,23 +104,23 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-08-05 12:08:34"
+            "time": "2014-09-12 21:42:43"
         }
     ],
     "packages-dev": [
         {
             "name": "illuminate/console",
-            "version": "v4.2.8",
+            "version": "v4.2.9",
             "target-dir": "Illuminate/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
-                "reference": "26ab2d3f5223851ac537668c778f13cad8742e4c"
+                "reference": "d52fd2d8debdcb7e1ebf931581fe518ae865db0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/console/zipball/26ab2d3f5223851ac537668c778f13cad8742e4c",
-                "reference": "26ab2d3f5223851ac537668c778f13cad8742e4c",
+                "url": "https://api.github.com/repos/illuminate/console/zipball/d52fd2d8debdcb7e1ebf931581fe518ae865db0a",
+                "reference": "d52fd2d8debdcb7e1ebf931581fe518ae865db0a",
                 "shasum": ""
             },
             "require": {
@@ -148,21 +148,21 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-08-01 12:29:44"
+            "time": "2014-09-05 17:27:06"
         },
         {
             "name": "symfony/console",
-            "version": "v2.5.3",
+            "version": "v2.5.4",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "cd2d1e4bac2206b337326b0140ff475fe9ad5f63"
+                "reference": "748beed2a1e73179c3f5154d33fe6ae100c1aeb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/cd2d1e4bac2206b337326b0140ff475fe9ad5f63",
-                "reference": "cd2d1e4bac2206b337326b0140ff475fe9ad5f63",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/748beed2a1e73179c3f5154d33fe6ae100c1aeb1",
+                "reference": "748beed2a1e73179c3f5154d33fe6ae100c1aeb1",
                 "shasum": ""
             },
             "require": {
@@ -203,7 +203,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-08-05 09:00:40"
+            "time": "2014-08-14 16:10:54"
         }
     ],
     "aliases": [

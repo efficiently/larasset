@@ -30,7 +30,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "efficiently/jquery-laravel": "1.0.*"
+        "efficiently/jquery-laravel": "~1.0.5"
     },
     "require-dev": {
         "illuminate/support": "~4.1",
