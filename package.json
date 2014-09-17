@@ -1,8 +1,13 @@
 {
   "name": "larasset-js",
   "description": "Asset Pipeline for Laravel 4",
-  "version": "0.9.1",
-  "keywords" : ["sprockets", "assets", "minify", "uglify", "bundle", "less", "mincer", "pipeline", "manifest", "versioning", "source-map", "sourcemaps", "laravel", "php"],
+  "version": "0.9.2",
+  "keywords" : [
+    "sprockets", "assets", "front", "minify", "uglify", "bundle", "javascript",
+    "coffeescript", "stylesheet", "css", "less", "sass", "scss",
+    "mincer", "asset pipeline", "pipeline", "manifest", "versioning",
+    "source-map", "sourcemaps", "laravel", "php"
+  ],
   "homepage" : "https://github.com/efficiently/larasset",
   "author" : "Tortue Torche <tortuetorche@spamme>",
   "bugs" : { "url": "https://github.com/efficiently/larasset/issues" },
