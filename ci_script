@@ -11,6 +11,6 @@ rm vendor/efficiently/jquery-laravel -Rf
 rm vendor/efficiently/larasset -Rf
 cp -pR ../jquery-laravel vendor/efficiently
 cp -pR ../larasset vendor/efficiently
-npm install -g vendor/efficiently/larasset
+npm install -g larasset-js
 chmod +x ./ci_script
 ./ci_script # Run acceptance tests of the Larasset demo

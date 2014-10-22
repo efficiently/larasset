@@ -25,7 +25,7 @@ abstract class BaseCommand extends IlluminateCommand
             exit();
         }
         if (! $this->hasLarassetJs()) {
-            $this->error("Please install the Node.js module 'larasset-js'. Run in a terminal: 'npm install -g vendor/efficiently/larasset'");
+            $this->error("Please install the Node.js module 'larasset-js'. Run in a terminal: 'npm install -g larasset-js'");
             exit();
         }
 

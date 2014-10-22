@@ -83,7 +83,7 @@ Installation
 7. You will need install some [Node.js](http://nodejs.org/) modules in order to run these Larasset commands:
 
     ```sh
-    npm install -g vendor/efficiently/larasset
+    npm install -g larasset-js
     ```
 
 8. Finally run `php artisan larasset:setup`.
