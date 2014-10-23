@@ -35,7 +35,7 @@ This package is **only** compatible with **PHP >= 5.4** and **Laravel >= 4.1** f
 Installation
 ------------
 
- ### Install and config Larasset package
+### Install and config Larasset package
 
 1. In the `composer.json`, replace the line `"minimum-stability": "stable"` by:
 
