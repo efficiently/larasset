@@ -7,7 +7,7 @@ The Asset Pipeline for Laravel >= 4.1 !
 
 The asset pipeline provides a framework to concatenate and minify or compress
 JavaScript and CSS assets. It also adds the ability to write these assets in
-other languages and pre-processors such as CoffeeScript, LESS and EJS.
+other languages and pre-processors such as CoffeeScript, LESS, Sass and EJS.
 
 For more a complete description of this package, you can read the Wiki docs:
 * The [Asset Pipeline](https://github.com/efficiently/larasset/wiki/Asset-pipeline) Guide
