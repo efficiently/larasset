@@ -131,7 +131,7 @@ option, like so:
 Changelog
 ---------
 
-### 0.9.6-dev
+### [0.9.6](https://github.com/efficiently/larasset/tree/0.9.6)
   * **Breaking changes:**
   The `--environment` command line option is renamed to `--assets-env`. Because there was some conflicts with the Laravel command line option `--env`. And `larasset-environment` command line option is renamed to `--larasset-env`.
   See issue [#6](https://github.com/efficiently/larasset/issues/6) for more information.
