@@ -41,7 +41,14 @@ class PrecompileAssetsCommand extends AssetsCommand
     {
         parent::fire();
 
-        $environment = $this->option('environment');
+        if ($this->option('environment')) {
+            # TODO: Remove the DEPRECATED stuff in the next minor version (0.10.0 or 1.0.0)
+            $this->comment("WARN: The '--environment' option is DEPRECATED, use '--assets-env' option instead please.");
+            $assetsEnv = $this->option('environment');
+        } else {
+            $assetsEnv = $this->option('assets-env');
+        }
+
         $packagePath = $this->packagePath();
 
         $searchPaths = array_map(
@@ -58,7 +65,7 @@ class PrecompileAssetsCommand extends AssetsCommand
             Config::get('larasset::precompile', [])
         );
         putenv('LARASSET_PRECOMPILE='.implode('|', $precompileFiles));
-        putenv('LARASSET_ENV='.$environment);
+        putenv('LARASSET_ENV='.$assetsEnv);
         putenv('LARASSET_COMMAND=precompile');
         putenv('LARASSET_PREFIX='.Config::get('larasset::prefix'));
         $assetsPrecompileCommand = "larasset";
@@ -90,7 +97,8 @@ class PrecompileAssetsCommand extends AssetsCommand
     protected function getOptions()
     {
         return [
-             ['environment', null, InputOption::VALUE_OPTIONAL, 'Specifies the environment to run this precompilation under.', 'development'],
+            ['assets-env', null, InputOption::VALUE_OPTIONAL, 'Specifies the assets environment to run this precompilation under.', 'development'],
+            ['environment', null, InputOption::VALUE_OPTIONAL, "DEPRECATED: Use '--assets-env' option instead."],
 
         ];
     }

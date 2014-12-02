@@ -43,7 +43,13 @@ class ServeAssetsCommand extends AssetsCommand
 
         $serverHost = $this->option('host');
         $serverPort = $this->option('port');
-        $serverEnvironment = $this->option('environment');
+        if ($this->option('environment')) {
+            # TODO: Remove the DEPRECATED stuff in the next minor version (0.10.0 or 1.0.0)
+            $this->comment("WARN: The '--environment' option is DEPRECATED, use '--assets-env' option instead please.");
+            $serverEnv = $this->option('environment');
+        } else {
+            $serverEnv = $this->option('assets-env');
+        }
 
         $serverOptions = "--port=".$serverPort." --host=".$serverHost;
         $packagePath = $this->packagePath();
@@ -56,7 +62,7 @@ class ServeAssetsCommand extends AssetsCommand
         );
         putenv('LARASSET_PATH='.implode('|', $searchPaths));
         putenv('LARASSET_PREFIX='.Config::get('larasset::prefix'));
-        putenv('LARASSET_ENV='.$serverEnvironment);
+        putenv('LARASSET_ENV='.$serverEnv);
         putenv('LARASSET_COMMAND=server');
         $assetsServerCommand = "larasset ".$serverOptions;
 
@@ -86,7 +92,8 @@ class ServeAssetsCommand extends AssetsCommand
         return [
             ['host', null, InputOption::VALUE_OPTIONAL, 'The host address to serve the asset files on.', "localhost"],
             ['port', null, InputOption::VALUE_OPTIONAL, 'The port to serve the asset files on.', 3000],
-            ['environment', null, InputOption::VALUE_OPTIONAL, 'Specifies the environment to run this server under (test/development/production).', 'development'],
+            ['assets-env', null, InputOption::VALUE_OPTIONAL, 'Specifies the assets environment to run this server under (test/development/production).', 'development'],
+            ['environment', null, InputOption::VALUE_OPTIONAL, "DEPRECATED: Use '--assets-env' option instead."],
         ];
     }
 }

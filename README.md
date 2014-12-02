@@ -49,13 +49,18 @@ Installation
     composer require efficiently/larasset:dev-master
     ```
 
-3. Turn on your application debug mode, in your `app/config/app.php` file:
+3. Turn on your application debug mode, create or edit the `app/config/local/app.php` file:
 
     ```php
+    <?php
+
+    return [
         'debug' => true,
+        // Others config options....
+    ];
     ```
 
-    Note: It is strongly recommended that you turn off error detail in a production environment.
+    Note: It is strongly recommended that you turn off error detail in your production environment.
 
 4. Add these two services providers to `app/config/app.php`:
 
@@ -97,7 +102,7 @@ Run:
 
     php artisan larasset:serve
 
-NOTICE: You should use it **only** in a development environment
+NOTICE: You should use it **only** in a development/local environment
 
 
 Precompiling assets (Manifest usage)
@@ -117,11 +122,19 @@ Development VS Production mode
 By default Larasset is running in _development_ mode. That means that it will
 recompile (server) any changed asset on demand. Also it's not compressing
 JavaScript and/or Stylesheets in development mode. To run Larraset's server and
-precompiler in production-ready mode, use `--environment production` command line
+precompiler in production-ready mode, use `--assets-env production` command line
 option, like so:
 
-    php artisan larasset:precompile --environment production
+    php artisan larasset:precompile --assets-env production
 
+
+Changelog
+---------
+
+### 0.9.6-dev
+  * **Breaking changes:**
+  The `--environment` command line option is renamed to `--assets-env`. Because there was some conflicts with the Laravel command line option `--env`. And `larasset-environment` command line option is renamed to `--larasset-env`.
+  See issue [#6](https://github.com/efficiently/larasset/issues/6) for more information.
 
 Credits
 -------

@@ -41,12 +41,19 @@ class ServerCommand extends BaseCommand
 
         $serverHost = $this->option('host');
         $serverPort = $this->option('port');
+        $serverEnv = $this->option('env');
         $assetsServerHost = $this->option('larasset-host');
         $assetsServerPort = $this->option('larasset-port');
-        $assetsServerEnvironment = $this->option('larasset-environment');
+        if ($this->option('larasset-environment')) {
+            # TODO: Remove the DEPRECATED stuff in the next minor version (0.10.0 or 1.0.0)
+            $this->comment("WARN: The '--larasset-environment' option is DEPRECATED, use '--larasset-env' option instead please.");
+            $assetsServerEnv = $this->option('larasset-environment');
+        } else {
+            $assetsServerEnv = $this->option('larasset-env');
+        }
 
         // Run assets server in a background process
-        $command = "php artisan larasset:serve --port=".$assetsServerPort." --host=".$assetsServerHost." --environment=".$assetsServerEnvironment;
+        $command = "php artisan larasset:serve --port=".$assetsServerPort." --host=".$assetsServerHost." --assets-env=".$assetsServerEnv;
         $this->info("Start the assets server...");
 
         $serverLogsPath = $this->normalizePath(storage_path('logs/larasset_server.log'));
@@ -54,7 +61,7 @@ class ServerCommand extends BaseCommand
         $this->execInBackground($command, $serverLogsPath);
 
         // Run PHP application server
-        $this->call('serve', ['--host' => $serverHost, '--port' => $serverPort]);
+        $this->call('serve', ['--host' => $serverHost, '--port' => $serverPort, '--env' => $serverEnv]);
     }
 
     /**
@@ -81,7 +88,9 @@ class ServerCommand extends BaseCommand
             ['port', null, InputOption::VALUE_OPTIONAL, 'The port to serve the application on.', 8000],
             ['larasset-host', null, InputOption::VALUE_OPTIONAL, 'The host address to serve the asset files on.', "localhost"],
             ['larasset-port', null, InputOption::VALUE_OPTIONAL, 'The port to serve the asset files on.', 3000],
-            ['larasset-environment', null, InputOption::VALUE_OPTIONAL, 'Specifies the environment to run this server under (test/development/production).', 'development'],
+            ['larasset-env', null, InputOption::VALUE_OPTIONAL, 'Specifies the assets environment to run this server under (test/development/production).', 'development'],
+            ['larasset-environment', null, InputOption::VALUE_OPTIONAL, "DEPRECATED: Use '--larasset-env' option instead."],
+
         ];
     }
 
