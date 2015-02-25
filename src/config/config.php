@@ -80,4 +80,12 @@ return [
             // 'admin.css',
         ],
 
+        /**
+         * Enable or disable Source Mapping.
+         * Useful in development environment to debug precompiled files.
+         * Source-maps files shouldn't be published on a public web server.
+         * So you can disable them for your production environment.
+         */
+        'sourceMaps' => true,
+
 ];

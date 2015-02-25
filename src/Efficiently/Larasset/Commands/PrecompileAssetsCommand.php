@@ -68,6 +68,8 @@ class PrecompileAssetsCommand extends AssetsCommand
         putenv('LARASSET_ENV='.$assetsEnv);
         putenv('LARASSET_COMMAND=precompile');
         putenv('LARASSET_PREFIX='.Config::get('larasset::prefix'));
+        $enableSourceMaps = Config::get('larasset::sourceMaps') === null ? true : Config::get('larasset::sourceMaps');
+        putenv('LARASSET_SOURCE_MAPS='.($enableSourceMaps ? 'true' : 'false'));
         $assetsPrecompileCommand = "larasset";
 
         // Precompile assets
