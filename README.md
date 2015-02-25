@@ -130,6 +130,8 @@ option, like so:
 
 Changelog
 ---------
+### [0.9.7](https://github.com/efficiently/larasset/tree/0.9.7)
+ * Add an option to disable Source Mapping.
 
 ### [0.9.6](https://github.com/efficiently/larasset/tree/0.9.6)
   * **Breaking changes:**
