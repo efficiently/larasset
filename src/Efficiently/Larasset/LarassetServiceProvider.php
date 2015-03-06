@@ -19,7 +19,15 @@ class LarassetServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('efficiently/larasset');
+        // Publish config
+        $this->publishes([
+            __DIR__ . '/../../config/config.php' => config_path('larasset.php')
+        ], 'config');
+
+        $this->mergeConfigFrom(
+            __DIR__ . '/../../config/config.php',
+            'larasset'
+        );
 
         // Init assets
         $this->app->make('asset', [public_path()."/assets"]);

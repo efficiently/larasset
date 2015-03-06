@@ -16,20 +16,20 @@ return [
         /**
          * By default, Larasset links to these assets on the current host
          * in the public folder, but you can direct Larasset to link to assets
-         * from a dedicated asset server by setting `larasset::host`
+         * from a dedicated asset server by setting `larasset.host`
          * in the package configuration, typically in
-         * `app/config/packages/efficiently/larasset/config.php`.
+         * `config/larasset.php`.
          * For example, you'd define `http://assets.example.com` to be your asset host
          * this way:
          *
-         *     Config::set('larasset::host', 'http://assets.example.com');
+         *     Config::set('larasset.host', 'http://assets.example.com');
          *
          * Helpers take that into account:
          *
          *     image_tag("logo.png");
          *     // -> <img src="http://assets.example.com/assets/logo.png" alt="Logo">
-         *     stylesheet_link_tag("application");
-         *     // -> <link media="all" type="text/css" rel="stylesheet" href="http://assets.example.com/assets/application.css">
+         *     stylesheet_link_tag("app");
+         *     // -> <link media="all" type="text/css" rel="stylesheet" href="http://assets.example.com/assets/app.css">
          *
          * sets the host for the assets. Useful when CDNs are used for hosting
          * assets, or when you want to work around the concurrency constraints builtin in browsers
@@ -47,18 +47,18 @@ return [
          * paths can be added to the pipeline
          */
         'paths' => array_merge(
-            // Including assets files in `app/assets` folders of your Laravel packages.
-            find_paths(base_path().'/vendor/*/*/app/assets/*/'),
+            // Including assets files in `resources/assets` folders of your Laravel packages.
+            find_paths(base_path().'/vendor/*/*/resources/assets/*/'),
             [
-                base_path().'/app/assets/images',
-                base_path().'/app/assets/javascripts',
-                base_path().'/app/assets/stylesheets',
+                base_path().'/resources/assets/images',
+                base_path().'/resources/assets/js',
+                base_path().'/resources/assets/css',
                 base_path().'/lib/assets/images',
-                base_path().'/lib/assets/javascripts',
-                base_path().'/lib/assets/stylesheets',
+                base_path().'/lib/assets/js',
+                base_path().'/lib/assets/css',
                 base_path().'/provider/assets/images',
-                base_path().'/provider/assets/javascripts',
-                base_path().'/provider/assets/stylesheets',
+                base_path().'/provider/assets/js',
+                base_path().'/provider/assets/css',
                 // base_path().'/provider/videoplayer/flash',
             ]
         ),
@@ -66,16 +66,16 @@ return [
         /**
          * Precompile files
          *
-         * The default matcher for compiling files includes application.js, application.css
+         * The default matcher for compiling files includes app.js, app.css
          * and all non-JS/CSS files (this will include all image assets automatically)
-         * from app/assets folders including your Laravel packages.
+         * from resources/assets folders including your Laravel packages.
          *
          * If you have other manifests or individual stylesheets and JavaScript files
          * to include, you can add them to this precompile array.
          */
         'precompile' => [
-            'application.css',
-            'application.js',
+            'app.css',
+            'app.js',
             // 'admin.js',
             // 'admin.css',
         ],

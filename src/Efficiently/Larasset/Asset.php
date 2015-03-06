@@ -1,9 +1,7 @@
 <?php namespace Efficiently\Larasset;
 
 use App;
-use Config;
 use File;
-use HTML;
 use Request;
 use URL;
 
@@ -26,11 +24,11 @@ class Asset
         $this->args = is_array($args) ? $args : func_get_args();
 
         $this->assetsPrefix = function () {
-            return Config::get('larasset::prefix', '/assets');
+            return config('larasset.prefix', '/assets');
         };
 
         $this->assetsHost = function () {
-            return Config::get('larasset::host');
+            return config('larasset.host');
         };
     }
 
@@ -58,7 +56,7 @@ class Asset
      */
     public function javascriptIncludeTag($sources = "application", $attributes = [])
     {
-        // E.g. javascript_include_tag('application'); => application-9fcd9b50e5cb047af35d3c5a4b55f73f.js
+        // E.g. javascript_include_tag('app'); => app-9fcd9b50e5cb047af35d3c5a4b55f73f.js
         $args = func_get_args();
         if (is_array(last($args))) {
             $attributes = array_pop($args);
@@ -78,7 +76,7 @@ class Asset
         $javascript_tags = [];
         foreach ((array) $sources as $source) {
             $sourceName = "$source.js";
-            $javascript_tags[] = HTML::script($this->assetPath($sourceName, $assetsOptions), $attributes);
+            $javascript_tags[] = app('html')->script($this->assetPath($sourceName, $assetsOptions), $attributes);
         }
 
         return implode($javascript_tags);
@@ -93,7 +91,7 @@ class Asset
      */
     public function stylesheetLinkTag($sources = "application", $attributes = [])
     {
-        // E.g. stylesheet_link_tag('application', ['media'=>'all']); => application-fa2ce4b45369a106436f229ca9e52bee.css
+        // E.g. stylesheet_link_tag('app', ['media'=>'all']); => app-fa2ce4b45369a106436f229ca9e52bee.css
         $args = func_get_args();
         if (is_array(last($args))) {
             $attributes = array_pop($args);
@@ -113,7 +111,7 @@ class Asset
         $stylesheet_tags = [];
         foreach ((array) $sources as $source) {
             $sourceName = "$source.css";
-            $stylesheet_tags[] = HTML::style($this->assetPath($sourceName, $assetsOptions), $attributes);
+            $stylesheet_tags[] = app('html')->style($this->assetPath($sourceName, $assetsOptions), $attributes);
         }
 
         return implode($stylesheet_tags);
@@ -137,7 +135,7 @@ class Asset
         $defaults = ['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon'];
         $attributes = $attributes + $defaults;
 
-        return "<link href='".$this->assetPath($source, $assetsOptions)."'".HTML::attributes($attributes).">".PHP_EOL;
+        return "<link href='".$this->assetPath($source, $assetsOptions)."'".app('html')->attributes($attributes).">".PHP_EOL;
     }
 
     /**
@@ -155,7 +153,7 @@ class Asset
         // E.g. image_tag('logo.png', "My Logo"); => <img src="http://localhost/assets/logo-f2331bb588d007ba354e5fa406f9f4aa.png" alt="My Logo">
         $alt = $alt ?: humanize(basename($source, ".".File::extension($source)));
 
-        return HTML::image($this->assetPath($source, $assetsOptions), $alt, $attributes);
+        return app('html')->image($this->assetPath($source, $assetsOptions), $alt, $attributes);
     }
 
     /**

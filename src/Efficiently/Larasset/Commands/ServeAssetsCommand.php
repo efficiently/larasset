@@ -2,8 +2,6 @@
 
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use Config;
-use File;
 
 class ServeAssetsCommand extends AssetsCommand
 {
@@ -58,10 +56,10 @@ class ServeAssetsCommand extends AssetsCommand
             function ($path) {
                 return $this->normalizePath($path);
             },
-            Config::get('larasset::paths', [])
+            config('larasset.paths', [])
         );
         putenv('LARASSET_PATH='.implode('|', $searchPaths));
-        putenv('LARASSET_PREFIX='.Config::get('larasset::prefix'));
+        putenv('LARASSET_PREFIX='.config('larasset.prefix'));
         putenv('LARASSET_ENV='.$serverEnv);
         putenv('LARASSET_COMMAND=server');
         $assetsServerCommand = "larasset ".$serverOptions;

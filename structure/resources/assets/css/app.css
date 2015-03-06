@@ -1,0 +1,14 @@
+/**
+ * This is a manifest file that'll be compiled into app.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS, LESS or Sass files within this directory, lib/assets/css, provider/assets/css,
+ * or provider/assets/css of packages, if any, can be referenced here using a relative path.
+ *
+ * It's not advisable to add code directly here, but if you do, it'll appear in whatever order it
+ * gets included (e.g. say you have require_tree . then the code will appear after all the directories
+ * but before any files alphabetically greater than 'app.css'
+ *
+ *= require_self
+ *= require_tree .
+ */
