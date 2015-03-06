@@ -9,6 +9,8 @@ The asset pipeline provides a framework to concatenate and minify or compress
 JavaScript and CSS assets. It also adds the ability to write these assets in
 other languages and pre-processors such as CoffeeScript, LESS, Sass and EJS.
 
+For [**Laravel 5.0**](http://laravel.com/docs/5.0) supports see [Larasset 1.0 branch](https://github.com/efficiently/larasset/tree/1.0)
+
 For more a complete description of this package, you can read the Wiki docs:
 * The [Asset Pipeline](https://github.com/efficiently/larasset/wiki/Asset-pipeline) Guide
 * [Working with Ajax/JavaScript in Laravel](https://github.com/efficiently/larasset/wiki/Working-with-JavaScript-and-Larasset) Guide
@@ -23,7 +25,7 @@ Demo application
 ----------------
 
 You can see in action this package with this [**online demo**](http://larasset.eu1.frbit.net/messages).
-And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app).
+And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app/tree/bootstrap).
 
 Prerequisites
 -------------
