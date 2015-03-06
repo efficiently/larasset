@@ -128,7 +128,7 @@ option, like so:
 
 Changelog
 ---------
-### [1.0-dev](https://github.com/efficiently/larasset/tree/0.9.7)
+### [1.0-dev](https://github.com/efficiently/larasset/tree/1.0)
  * Laravel 5.0 support!
 
 ### [0.9.7](https://github.com/efficiently/larasset/tree/0.9.7)
