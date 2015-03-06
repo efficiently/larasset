@@ -25,7 +25,7 @@ Demo application
 ----------------
 
 You can see this package in action with this [**online demo**](http://larasset.eu1.frbit.net/messages).
-And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app).
+And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app/tree/bootstrap-l5).
 
 Prerequisites
 -------------
@@ -48,7 +48,7 @@ Installation
 2. Install Larasset package with composer:
 
     ```sh
-    composer require efficiently/larasset:dev-master
+    composer require efficiently/larasset:1.0.*
     ```
 
 3. Turn on your application debug mode, create or edit the `config/app.php` file:
