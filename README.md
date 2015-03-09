@@ -3,13 +3,13 @@ Larasset
 
 [![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=1.0)](https://travis-ci.org/efficiently/larasset)
 
-The Asset Pipeline for Laravel 5.0 !
+The Asset Pipeline for **Laravel 5.0** !
 
 The asset pipeline provides a framework to concatenate and minify or compress
 JavaScript and CSS assets. It also adds the ability to write these assets in
 other languages and pre-processors such as CoffeeScript, LESS, Sass and EJS.
 
-For [**Laravel 4.1 or 4.2**](http://laravel.com/docs/4.2) supports see [Larasset 0.9 branch](https://github.com/efficiently/larasset/tree/0.9)
+For [Laravel 4.1 or 4.2](http://laravel.com/docs/4.2) supports see [Larasset 0.9 branch](https://github.com/efficiently/larasset/tree/0.9)
 
 For a more complete description of this package, you can read the Wiki docs:
 * The [Asset Pipeline](https://github.com/efficiently/larasset/wiki/Asset-pipeline) Guide
