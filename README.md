@@ -24,7 +24,7 @@ Examples of Larasset usage.
 Demo application
 ----------------
 
-You can see this package in action with this [**online demo**](http://larasset.eu1.frbit.net/messages).
+You can see this package in action with this [**online demo**](http://larasset.herokuapp.com/messages).
 And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app/tree/bootstrap-l5).
 
 Prerequisites
@@ -67,6 +67,7 @@ Installation
 4. Add these two services providers to `config/app.php`:
 
     ```php
+            'Illuminate\Html\HtmlServiceProvider',
             'Efficiently\Larasset\LarassetServiceProvider',
             'Efficiently\JqueryLaravel\JqueryLaravelServiceProvider',
     ```
@@ -74,6 +75,8 @@ Installation
 5. Add the alias (facade) to your Laravel `config/app.php` file:
 
     ```php
+           'Form' => 'Illuminate\Html\FormFacade',
+		   'HTML' => 'Illuminate\Html\HtmlFacade',
            'Asset' => 'Efficiently\Larasset\Facades\Asset',
     ```
 
