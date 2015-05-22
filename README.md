@@ -64,7 +64,7 @@ Installation
 
     Note: It is strongly recommended that you turn off error detail in your production environment.
 
-4. Add these two services providers to `config/app.php`:
+4. Add these services providers to `config/app.php`:
 
     ```php
             'Illuminate\Html\HtmlServiceProvider',
@@ -72,11 +72,11 @@ Installation
             'Efficiently\JqueryLaravel\JqueryLaravelServiceProvider',
     ```
 
-5. Add the alias (facade) to your Laravel `config/app.php` file:
+5. Add these alias (facades) to your Laravel `config/app.php` file:
 
     ```php
            'Form' => 'Illuminate\Html\FormFacade',
-		   'HTML' => 'Illuminate\Html\HtmlFacade',
+           'HTML' => 'Illuminate\Html\HtmlFacade',
            'Asset' => 'Efficiently\Larasset\Facades\Asset',
     ```
 
