@@ -10,6 +10,7 @@ JavaScript and CSS assets. It also adds the ability to write these assets in
 other languages and pre-processors such as CoffeeScript, LESS, Sass and EJS.
 
 For [Laravel 4.1 or 4.2](http://laravel.com/docs/4.2) supports see [Larasset 0.9 branch](https://github.com/efficiently/larasset/tree/0.9)
+
 For [Laravel 5.0](http://laravel.com/docs/5.0) supports see [Larasset 1.0 branch](https://github.com/efficiently/larasset/tree/1.0)
 
 For a more complete description of this package, you can read the Wiki docs:
@@ -135,6 +136,11 @@ Changelog
 ### [1.1-dev](https://github.com/efficiently/larasset/tree/1.1)
  * Laravel 5.1 support!
  * [ECMAScript 2015](http://ecma-international.org/ecma-262/6.0) (ES6) support with [Babel](http://babeljs.io/) via [`larasset-js` 1.1.1](https://github.com/efficiently/larasset-js/tree/1.1.1)
+ * Replace the deprecated package [`illuminate/html`](https://github.com/illuminate/html) package by the [`laravelcollective/html`](https://github.com/LaravelCollective/html) package
+   * You should replace in the `config/app.php` file of your Laravel application:
+     `'Illuminate\Html\HtmlServiceProvider',` by `'Collective\Html\HtmlServiceProvider',`
+     `'Form' => 'Illuminate\Html\FormFacade',` by `'Form' => 'Collective\Html\FormFacade',`
+     `'HTML' => 'Illuminate\Html\HtmlFacade',` by `'HTML' => 'Collective\Html\HtmlFacade',`
 
 ### [1.0.0](https://github.com/efficiently/larasset/tree/1.0.0)
  * Laravel 5.0 support!
