@@ -109,3 +109,17 @@ if (! function_exists('find_paths')) {
         return $paths ?: [];
     }
 }
+
+if (! function_exists('humanize')) {
+
+    /**
+     * humanize("my beautiful hat");//-> 'My beautiful hat'
+     *
+     * @param  string $value
+     * @return string
+     */
+    function humanize($value)
+    {
+        return ucfirst(snake_case(camel_case($value), ' '));
+    }
+}
