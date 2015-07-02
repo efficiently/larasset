@@ -11,6 +11,8 @@ other languages and pre-processors such as CoffeeScript, LESS, Sass and EJS.
 
 For [Laravel 4.1 or 4.2](http://laravel.com/docs/4.2) supports see [Larasset 0.9 branch](https://github.com/efficiently/larasset/tree/0.9)
 
+For [**Laravel 5.1**](http://laravel.com/docs/5.1) supports see [Larasset 1.1 branch](https://github.com/efficiently/larasset/tree/1.1)
+
 For a more complete description of this package, you can read the Wiki docs:
 * The [Asset Pipeline](https://github.com/efficiently/larasset/wiki/Asset-pipeline) Guide
 * [Working with Ajax/JavaScript in Laravel](https://github.com/efficiently/larasset/wiki/Working-with-JavaScript-and-Larasset) Guide
