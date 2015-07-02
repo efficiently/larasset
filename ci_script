@@ -2,7 +2,7 @@
 
 cd ..
 git clone https://github.com/efficiently/jquery-laravel.git --branch 2.0
-git clone https://github.com/efficiently/laravel_larasset_app.git --branch 1.0
+git clone https://github.com/efficiently/laravel_larasset_app.git --branch 1.1
 
 cd laravel_larasset_app
 composer self-update

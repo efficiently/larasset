@@ -21,7 +21,8 @@
         "manifest",
         "versioning",
         "laravel",
-        "laravel 5"
+        "laravel 5",
+        "laravel 5.1"
     ],
     "license": "MIT",
     "authors": [

@@ -1,15 +1,16 @@
 Larasset
 ========
 
-[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=1.0)](https://travis-ci.org/efficiently/larasset)
+[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=1.1)](https://travis-ci.org/efficiently/larasset)
 
-The Asset Pipeline for **Laravel 5.0** !
+The Asset Pipeline for **Laravel 5.1** !
 
 The asset pipeline provides a framework to concatenate and minify or compress
 JavaScript and CSS assets. It also adds the ability to write these assets in
 other languages and pre-processors such as CoffeeScript, LESS, Sass and EJS.
 
 For [Laravel 4.1 or 4.2](http://laravel.com/docs/4.2) supports see [Larasset 0.9 branch](https://github.com/efficiently/larasset/tree/0.9)
+For [Laravel 5.0](http://laravel.com/docs/5.0) supports see [Larasset 1.0 branch](https://github.com/efficiently/larasset/tree/1.0)
 
 For a more complete description of this package, you can read the Wiki docs:
 * The [Asset Pipeline](https://github.com/efficiently/larasset/wiki/Asset-pipeline) Guide
@@ -25,14 +26,14 @@ Demo application
 ----------------
 
 You can see this package in action with this [**online demo**](http://larasset.herokuapp.com/messages).
-And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app/tree/bootstrap-l5).
+And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app/tree/bootstrap-l5.1).
 
 Prerequisites
 -------------
 
 You must [install Node.js](http://nodejs.org) on your computer (development environment only).
 
-This package is **only** compatible with **PHP >= 5.4** and **Laravel >= 5.0** framework.
+This package is **only** compatible with **PHP >= 5.5** and **Laravel >= 5.1** framework.
 
 Installation
 ------------
@@ -48,7 +49,7 @@ Installation
 2. Install Larasset package with composer:
 
     ```sh
-    composer require efficiently/larasset:1.0.*
+    composer require efficiently/larasset:1.1.*
     ```
 
 3. Turn on your application debug mode, create or edit the `config/app.php` file:
@@ -67,7 +68,7 @@ Installation
 4. Add these services providers to `config/app.php`:
 
     ```php
-            'Illuminate\Html\HtmlServiceProvider',
+            'Collective\Html\HtmlServiceProvider',
             'Efficiently\Larasset\LarassetServiceProvider',
             'Efficiently\JqueryLaravel\JqueryLaravelServiceProvider',
     ```
@@ -75,8 +76,8 @@ Installation
 5. Add these alias (facades) to your Laravel `config/app.php` file:
 
     ```php
-           'Form' => 'Illuminate\Html\FormFacade',
-           'HTML' => 'Illuminate\Html\HtmlFacade',
+           'Form' => 'Collective\Html\FormFacade',
+           'HTML' => 'Collective\Html\HtmlFacade',
            'Asset' => 'Efficiently\Larasset\Facades\Asset',
     ```
 
@@ -131,7 +132,11 @@ option, like so:
 
 Changelog
 ---------
-### [1.0-dev](https://github.com/efficiently/larasset/tree/1.0)
+### [1.1-dev](https://github.com/efficiently/larasset/tree/1.1)
+ * Laravel 5.1 support!
+ * [ECMAScript 2015](http://ecma-international.org/ecma-262/6.0) (ES6) support with [Babel](http://babeljs.io/) via [`larasset-js` 1.1.1](https://github.com/efficiently/larasset-js/tree/1.1.1)
+
+### [1.0.0](https://github.com/efficiently/larasset/tree/1.0.0)
  * Laravel 5.0 support!
 
 ### [0.9.7](https://github.com/efficiently/larasset/tree/0.9.7)
