@@ -131,7 +131,7 @@ option, like so:
 
 Changelog
 ---------
-### [1.0-dev](https://github.com/efficiently/larasset/tree/1.0)
+### [1.0.0](https://github.com/efficiently/larasset/tree/1.0.0)
  * Laravel 5.0 support!
 
 ### [0.9.7](https://github.com/efficiently/larasset/tree/0.9.7)
@@ -154,7 +154,3 @@ Acknowledgements
 ----------------
 
 Released under the MIT License.
-
-#### This is beta-quality software
-It works well according to our tests. The internal API may change and other features will be added.
-We are working to make Larasset production quality software.
