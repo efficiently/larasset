@@ -1,19 +1,19 @@
 Larasset
 ========
 
-[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=0.9)](https://travis-ci.org/efficiently/larasset)
+[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=1.1)](https://travis-ci.org/efficiently/larasset)
 
-The Asset Pipeline for Laravel >= 4.1 !
+The Asset Pipeline for **Laravel 5.1** !
 
 The asset pipeline provides a framework to concatenate and minify or compress
 JavaScript and CSS assets. It also adds the ability to write these assets in
 other languages and pre-processors such as CoffeeScript, LESS, Sass and EJS.
 
-For [**Laravel 5.0**](http://laravel.com/docs/5.0) supports see [Larasset 1.0 branch](https://github.com/efficiently/larasset/tree/1.0)
+For [Laravel 4.1 or 4.2](http://laravel.com/docs/4.2) supports see [Larasset 0.9 branch](https://github.com/efficiently/larasset/tree/0.9)
 
-For [**Laravel 5.1**](http://laravel.com/docs/5.1) supports see [Larasset 1.1 branch](https://github.com/efficiently/larasset/tree/1.1)
+For [Laravel 5.0](http://laravel.com/docs/5.0) supports see [Larasset 1.0 branch](https://github.com/efficiently/larasset/tree/1.0)
 
-For more a complete description of this package, you can read the Wiki docs:
+For a more complete description of this package, you can read the Wiki docs:
 * The [Asset Pipeline](https://github.com/efficiently/larasset/wiki/Asset-pipeline) Guide
 * [Working with Ajax/JavaScript in Laravel](https://github.com/efficiently/larasset/wiki/Working-with-JavaScript-and-Larasset) Guide
 
@@ -26,15 +26,15 @@ Examples of Larasset usage.
 Demo application
 ----------------
 
-You can see in action this package with this [**online demo**](http://larasset.herokuapp.com/messages).
-And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app/tree/bootstrap).
+You can see this package in action with this [**online demo**](http://larasset.herokuapp.com/messages).
+And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app/tree/bootstrap-l5.1).
 
 Prerequisites
 -------------
 
 You must [install Node.js](http://nodejs.org) on your computer (development environment only).
 
-This package is **only** compatible with **PHP >= 5.4** and **Laravel >= 4.1** framework.
+This package is **only** compatible with **PHP >= 5.5** and **Laravel >= 5.1** framework.
 
 Installation
 ------------
@@ -50,10 +50,10 @@ Installation
 2. Install Larasset package with composer:
 
     ```sh
-    composer require efficiently/larasset:0.9.*
+    composer require efficiently/larasset:1.1.*
     ```
 
-3. Turn on your application debug mode, create or edit the `app/config/local/app.php` file:
+3. Turn on your application debug mode, create or edit the `config/app.php` file:
 
     ```php
     <?php
@@ -66,27 +66,26 @@ Installation
 
     Note: It is strongly recommended that you turn off error detail in your production environment.
 
-4. Add these two services providers to `app/config/app.php`:
+4. Add these services providers to `config/app.php`:
 
     ```php
+            'Collective\Html\HtmlServiceProvider',
             'Efficiently\Larasset\LarassetServiceProvider',
             'Efficiently\JqueryLaravel\JqueryLaravelServiceProvider',
     ```
 
-5. Add the alias (facade) to your Laravel app config file:
+5. Add these alias (facades) to your Laravel `config/app.php` file:
 
     ```php
+           'Form' => 'Collective\Html\FormFacade',
+           'HTML' => 'Collective\Html\HtmlFacade',
            'Asset' => 'Efficiently\Larasset\Facades\Asset',
     ```
 
-6. Setup your local environment within the `bootstrap/start.php` file:
-
-    You may determine your computer name using the `hostname` terminal command, then add it like this:
+6. You can now add the this security Middleware to your `app/Http/Kernel.php` file:
 
     ```php
-    $env = $app->detectEnvironment(array(
-        'local' => array('your-computer-name'),
-    ));
+            'Efficiently\JqueryLaravel\VerifyJavascriptResponse',
     ```
 
 7. You will need install some [Node.js](http://nodejs.org/) modules in order to run these Larasset commands:
@@ -134,6 +133,18 @@ option, like so:
 
 Changelog
 ---------
+### [1.1-dev](https://github.com/efficiently/larasset/tree/1.1)
+ * Laravel 5.1 support!
+ * [ECMAScript 2015](http://ecma-international.org/ecma-262/6.0) (ES6) support with [Babel](http://babeljs.io/) via [`larasset-js` 1.1.1](https://github.com/efficiently/larasset-js/tree/1.1.1)
+ * Replace the deprecated package [`illuminate/html`](https://github.com/illuminate/html) package by the [`laravelcollective/html`](https://github.com/LaravelCollective/html) package
+   * You should replace in the `config/app.php` file of your Laravel application:
+     `'Illuminate\Html\HtmlServiceProvider',` by `'Collective\Html\HtmlServiceProvider',`
+     `'Form' => 'Illuminate\Html\FormFacade',` by `'Form' => 'Collective\Html\FormFacade',`
+     `'HTML' => 'Illuminate\Html\HtmlFacade',` by `'HTML' => 'Collective\Html\HtmlFacade',`
+
+### [1.0.0](https://github.com/efficiently/larasset/tree/1.0.0)
+ * Laravel 5.0 support!
+
 ### [0.9.7](https://github.com/efficiently/larasset/tree/0.9.7)
  * Add an option to disable Source Mapping.
 

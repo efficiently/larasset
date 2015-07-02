@@ -2,8 +2,6 @@
 
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use Config;
-use File;
 
 class PrecompileAssetsCommand extends AssetsCommand
 {
@@ -55,20 +53,20 @@ class PrecompileAssetsCommand extends AssetsCommand
             function ($path) {
                 return $this->normalizePath($path);
             },
-            Config::get('larasset::paths', [])
+            config('larasset.paths', [])
         );
         putenv('LARASSET_PATH='.implode('|', $searchPaths));
         $precompileFiles = array_map(
             function ($path) {
                 return $this->normalizePath($path);
             },
-            Config::get('larasset::precompile', [])
+            config('larasset.precompile', [])
         );
         putenv('LARASSET_PRECOMPILE='.implode('|', $precompileFiles));
         putenv('LARASSET_ENV='.$assetsEnv);
         putenv('LARASSET_COMMAND=precompile');
-        putenv('LARASSET_PREFIX='.Config::get('larasset::prefix'));
-        $enableSourceMaps = Config::get('larasset::sourceMaps') === null ? true : Config::get('larasset::sourceMaps');
+        putenv('LARASSET_PREFIX='.config('larasset.prefix'));
+        $enableSourceMaps = config('larasset.sourceMaps') === null ? true : config('larasset.sourceMaps');
         putenv('LARASSET_SOURCE_MAPS='.($enableSourceMaps ? 'true' : 'false'));
         $assetsPrecompileCommand = "larasset";
 

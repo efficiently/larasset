@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 cd ..
-git clone https://github.com/efficiently/jquery-laravel.git
-git clone https://github.com/efficiently/laravel_larasset_app.git
+git clone https://github.com/efficiently/jquery-laravel.git --branch 2.0
+git clone https://github.com/efficiently/laravel_larasset_app.git --branch 1.1
 
 cd laravel_larasset_app
 composer self-update
-composer install --prefer-source --no-interaction --dev
+composer install --prefer-source --no-interaction
 rm vendor/efficiently/jquery-laravel -Rf
 rm vendor/efficiently/larasset -Rf
 cp -pR ../jquery-laravel vendor/efficiently

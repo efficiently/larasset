@@ -1,6 +1,6 @@
 {
     "name": "efficiently/larasset",
-    "description": "Larasset is a library for Laravel 4+ which manage assets in an easy way.",
+    "description": "Larasset is a library for Laravel 5 which manage assets in an easy way.",
     "keywords": [
         "assets",
         "sprockets",
@@ -19,7 +19,10 @@
         "sourcemaps",
         "source-map",
         "manifest",
-        "versioning"
+        "versioning",
+        "laravel",
+        "laravel 5",
+        "laravel 5.1"
     ],
     "license": "MIT",
     "authors": [
@@ -30,11 +33,12 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "efficiently/jquery-laravel": "~1.0.5"
+        "laravelcollective/html": "5.0.4||5.1.*",
+        "efficiently/jquery-laravel": "~2.0.0"
     },
     "require-dev": {
-        "illuminate/support": "~4.1",
-        "illuminate/console": "~4.1"
+        "illuminate/support": "~5.0",
+        "illuminate/console": "~5.0"
     },
     "autoload": {
         "classmap": [

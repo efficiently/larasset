@@ -91,7 +91,7 @@ class Manifest
     //
     //   Logical path (String): Fingerprint path (String)
     //
-    //   [ "application.js" => "application-2e8e9a7c6b0aafa0c9bdeec90ea30213.js",
+    //   [ "app.js" => "app-2e8e9a7c6b0aafa0c9bdeec90ea30213.js",
     //     "jquery.js"      => "jquery-ae0908555a245f8266f77df5a8edca2e.js" ]
     //
     public function getAssets()
@@ -107,8 +107,8 @@ class Manifest
     //     mtime: ISO8601 mtime (String)
     //     digest: Base64 hex digest (String)
     //
-    //  [ "application-2e8e9a7c6b0aafa0c9bdeec90ea30213.js" =>
-    //      [ 'logical_path' => "application.js",
+    //  [ "app-2e8e9a7c6b0aafa0c9bdeec90ea30213.js" =>
+    //      [ 'logical_path' => "app.js",
     //        'mtime' => "2011-12-13T21:47:08-06:00",
     //        'digest' => "2e8e9a7c6b0aafa0c9bdeec90ea30213" ] ]
     //
