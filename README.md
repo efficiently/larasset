@@ -1,7 +1,7 @@
 Larasset
 ========
 
-[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=master)](https://travis-ci.org/efficiently/larasset)
+[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=0.9)](https://travis-ci.org/efficiently/larasset)
 
 The Asset Pipeline for Laravel >= 4.1 !
 
@@ -10,6 +10,8 @@ JavaScript and CSS assets. It also adds the ability to write these assets in
 other languages and pre-processors such as CoffeeScript, LESS, Sass and EJS.
 
 For [**Laravel 5.0**](http://laravel.com/docs/5.0) supports see [Larasset 1.0 branch](https://github.com/efficiently/larasset/tree/1.0)
+
+For [**Laravel 5.1**](http://laravel.com/docs/5.1) supports see [Larasset 1.1 branch](https://github.com/efficiently/larasset/tree/1.1)
 
 For more a complete description of this package, you can read the Wiki docs:
 * The [Asset Pipeline](https://github.com/efficiently/larasset/wiki/Asset-pipeline) Guide
@@ -24,7 +26,7 @@ Examples of Larasset usage.
 Demo application
 ----------------
 
-You can see in action this package with this [**online demo**](http://larasset.eu1.frbit.net/messages).
+You can see in action this package with this [**online demo**](http://larasset.herokuapp.com/messages).
 And you can grab the source code of this demo [here](https://github.com/efficiently/laravel_larasset_app/tree/bootstrap).
 
 Prerequisites
@@ -48,7 +50,7 @@ Installation
 2. Install Larasset package with composer:
 
     ```sh
-    composer require efficiently/larasset:dev-master
+    composer require efficiently/larasset:0.9.*
     ```
 
 3. Turn on your application debug mode, create or edit the `app/config/local/app.php` file:
