@@ -133,8 +133,14 @@ option, like so:
 
 Changelog
 ---------
+### [1.0.1](https://github.com/efficiently/larasset/tree/1.0.1)
+ * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
+
 ### [1.0.0](https://github.com/efficiently/larasset/tree/1.0.0)
  * Laravel 5.0 support!
+
+### [0.9.8](https://github.com/efficiently/larasset/tree/0.9.8)
+  * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
 
 ### [0.9.7](https://github.com/efficiently/larasset/tree/0.9.7)
  * Add an option to disable Source Mapping.
