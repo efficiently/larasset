@@ -19,7 +19,9 @@
         "sourcemaps",
         "source-map",
         "manifest",
-        "versioning"
+        "versioning",
+        "laravel",
+        "laravel 4"
     ],
     "license": "MIT",
     "authors": [
@@ -30,7 +32,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "efficiently/jquery-laravel": "~1.0.5"
+        "efficiently/jquery-laravel": "~1.0.9"
     },
     "require-dev": {
         "illuminate/support": "~4.1",

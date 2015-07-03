@@ -134,6 +134,9 @@ option, like so:
 
 Changelog
 ---------
+### [0.9.8](https://github.com/efficiently/larasset/tree/0.9.8)
+ * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
+
 ### [0.9.7](https://github.com/efficiently/larasset/tree/0.9.7)
  * Add an option to disable Source Mapping.
 
@@ -154,7 +157,3 @@ Acknowledgements
 ----------------
 
 Released under the MIT License.
-
-#### This is beta-quality software
-It works well according to our tests. The internal API may change and other features will be added.
-We are working to make Larasset production quality software.
