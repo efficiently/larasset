@@ -133,6 +133,9 @@ option, like so:
 
 Changelog
 ---------
+### [1.0.2](https://github.com/efficiently/larasset/tree/1.0.2)
+ * Fix PHP 5.4 support.
+
 ### [1.0.1](https://github.com/efficiently/larasset/tree/1.0.1)
  * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
 

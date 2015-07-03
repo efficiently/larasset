@@ -32,12 +32,12 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/html": "~5.0",
+        "illuminate/html": "~5.0.0",
         "efficiently/jquery-laravel": "~2.0.0"
     },
     "require-dev": {
-        "illuminate/support": "~5.0",
-        "illuminate/console": "~5.0"
+        "illuminate/support": "~5.0.33",
+        "illuminate/console": "~5.0.33"
     },
     "autoload": {
         "classmap": [
