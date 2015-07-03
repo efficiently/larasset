@@ -136,14 +136,22 @@ Changelog
 ### [1.1-dev](https://github.com/efficiently/larasset/tree/1.1)
  * Laravel 5.1 support!
  * [ECMAScript 2015](http://ecma-international.org/ecma-262/6.0) (ES6) support with [Babel](http://babeljs.io/) via [`larasset-js` 1.1.1](https://github.com/efficiently/larasset-js/tree/1.1.1)
+ * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
  * Replace the deprecated package [`illuminate/html`](https://github.com/illuminate/html) package by the [`laravelcollective/html`](https://github.com/LaravelCollective/html) package
+ * **Upgrade Notes** <small>(if you used previously this package with Laravel 4.x or 5.0)</small>:  
    * You should replace in the `config/app.php` file of your Laravel application:
-     `'Illuminate\Html\HtmlServiceProvider',` by `'Collective\Html\HtmlServiceProvider',`
-     `'Form' => 'Illuminate\Html\FormFacade',` by `'Form' => 'Collective\Html\FormFacade',`
-     `'HTML' => 'Illuminate\Html\HtmlFacade',` by `'HTML' => 'Collective\Html\HtmlFacade',`
+     1. `'Illuminate\Html\HtmlServiceProvider',` by `'Collective\Html\HtmlServiceProvider',`
+     2. `'Form' => 'Illuminate\Html\FormFacade',` by `'Form' => 'Collective\Html\FormFacade',`
+     3. `'HTML' => 'Illuminate\Html\HtmlFacade',` by `'HTML' => 'Collective\Html\HtmlFacade',`
+
+### [1.0.1](https://github.com/efficiently/larasset/tree/1.0.1)
+  * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
 
 ### [1.0.0](https://github.com/efficiently/larasset/tree/1.0.0)
  * Laravel 5.0 support!
+
+### [0.9.8](https://github.com/efficiently/larasset/tree/0.9.8)
+ * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
 
 ### [0.9.7](https://github.com/efficiently/larasset/tree/0.9.7)
  * Add an option to disable Source Mapping.
