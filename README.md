@@ -144,6 +144,9 @@ Changelog
      2. `'Form' => 'Illuminate\Html\FormFacade',` by `'Form' => 'Collective\Html\FormFacade',`
      3. `'HTML' => 'Illuminate\Html\HtmlFacade',` by `'HTML' => 'Collective\Html\HtmlFacade',`
 
+### [1.0.2](https://github.com/efficiently/larasset/tree/1.0.2)
+  * Fix PHP 5.4 support.
+
 ### [1.0.1](https://github.com/efficiently/larasset/tree/1.0.1)
   * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
 
