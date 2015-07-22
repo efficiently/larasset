@@ -137,7 +137,12 @@ Changelog
  * Laravel 5.1 support!
  * [ECMAScript 2015](http://ecma-international.org/ecma-262/6.0) (ES6) support with [Babel](http://babeljs.io/) via [`larasset-js` 1.1.1](https://github.com/efficiently/larasset-js/tree/1.1.1)
  * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
- * Replace the deprecated package [`illuminate/html`](https://github.com/illuminate/html) package by the [`laravelcollective/html`](https://github.com/LaravelCollective/html) package
+ * Add a `larasset.port` config option.
+  For handling correctly the `--larasset-port` option of the `php artisan server` command.
+  Useful for your development environment when you run the assets server.
+  The default port value is `3000`.
+  You can change it in the `config/larasset.php` file of your Laravel application.
+ * Replace the deprecated [`illuminate/html`](https://github.com/illuminate/html) package by the [`laravelcollective/html`](https://github.com/LaravelCollective/html) package.
  * **Upgrade Notes** <small>(if you used previously this package with Laravel 4.x or 5.0)</small>:  
    * You should replace in the `config/app.php` file of your Laravel application:
      1. `'Illuminate\Html\HtmlServiceProvider',` by `'Collective\Html\HtmlServiceProvider',`
@@ -148,13 +153,13 @@ Changelog
   * Fix PHP 5.4 support.
 
 ### [1.0.1](https://github.com/efficiently/larasset/tree/1.0.1)
-  * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
+  * Backporting the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
 
 ### [1.0.0](https://github.com/efficiently/larasset/tree/1.0.0)
  * Laravel 5.0 support!
 
 ### [0.9.8](https://github.com/efficiently/larasset/tree/0.9.8)
- * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
+ * Backporting the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
 
 ### [0.9.7](https://github.com/efficiently/larasset/tree/0.9.7)
  * Add an option to disable Source Mapping.
