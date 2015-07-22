@@ -38,6 +38,12 @@ return [
         'host' => null,
 
         /**
+         * The port to serve the asset files on.
+         * Useful for your development environment when you run the Assets server
+         */
+        'port' => 3000,
+
+        /**
          * Search Paths
          *
          * When a file is referenced from a manifest or a helper,

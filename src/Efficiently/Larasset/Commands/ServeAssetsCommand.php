@@ -89,7 +89,7 @@ class ServeAssetsCommand extends AssetsCommand
     {
         return [
             ['host', null, InputOption::VALUE_OPTIONAL, 'The host address to serve the asset files on.', "localhost"],
-            ['port', null, InputOption::VALUE_OPTIONAL, 'The port to serve the asset files on.', 3000],
+            ['port', null, InputOption::VALUE_OPTIONAL, 'The port to serve the asset files on.', config('larasset.port', 3000)],
             ['assets-env', null, InputOption::VALUE_OPTIONAL, 'Specifies the assets environment to run this server under (test/development/production).', 'development'],
             ['environment', null, InputOption::VALUE_OPTIONAL, "DEPRECATED: Use '--assets-env' option instead."],
         ];

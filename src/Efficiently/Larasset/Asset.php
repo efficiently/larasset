@@ -11,7 +11,7 @@ class Asset
 
     protected $args = [];
     protected $manifests = [];
-    protected $port = 3000; // TODO: Set this value in a config option
+    protected $assetPort;
     protected $assetsPrefix;
     protected $assetsHost;
 
@@ -29,6 +29,10 @@ class Asset
 
         $this->assetsHost = function () {
             return config('larasset.host');
+        };
+
+        $this->assetPort = function () {
+            return getenv('LARASSET_PORT') ?: config('larasset.port', 3000);
         };
     }
 
@@ -184,9 +188,14 @@ class Asset
             $assetHost = $assetHost();
         }
 
+        $assetPort = $this->assetPort;
+        if (is_callable($assetPort) && is_object($assetPort)) {
+            $assetPort = $assetPort();
+        }
+
         $protocol = Request::secure() ? "https://" : "http://";
         if (App::environment() !== (getenv('ASSETS_ENV') ?: 'production')) {
-            $assetHost = $assetHost ?: $protocol.$this->getHostname().":".$this->port;
+            $assetHost = $assetHost ?: $protocol.$this->getHostname().":".$assetPort;
             $assetLocation = $assetHost.$assetPrefix;
         } else {
             $assetLocation = $assetHost.$assetPrefix;

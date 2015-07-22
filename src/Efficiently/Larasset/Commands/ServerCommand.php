@@ -2,6 +2,7 @@
 
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use Config;
 
 class ServerCommand extends BaseCommand
 {
@@ -44,8 +45,9 @@ class ServerCommand extends BaseCommand
         $serverEnv = $this->option('env');
         $assetsServerHost = $this->option('larasset-host');
         $assetsServerPort = $this->option('larasset-port');
+        putenv('LARASSET_PORT='.$assetsServerPort);
         if ($this->option('larasset-environment')) {
-            # TODO: Remove the DEPRECATED stuff in the next minor version (0.10.0 or 1.0.0)
+            // TODO: Remove the DEPRECATED stuff in the next minor version (0.10.0 or 1.0.0)
             $this->comment("WARN: The '--larasset-environment' option is DEPRECATED, use '--larasset-env' option instead please.");
             $assetsServerEnv = $this->option('larasset-environment');
         } else {
@@ -87,7 +89,7 @@ class ServerCommand extends BaseCommand
             ['host', null, InputOption::VALUE_OPTIONAL, 'The host address to serve the application on.', "localhost"],
             ['port', null, InputOption::VALUE_OPTIONAL, 'The port to serve the application on.', 8000],
             ['larasset-host', null, InputOption::VALUE_OPTIONAL, 'The host address to serve the asset files on.', "localhost"],
-            ['larasset-port', null, InputOption::VALUE_OPTIONAL, 'The port to serve the asset files on.', 3000],
+            ['larasset-port', null, InputOption::VALUE_OPTIONAL, 'The port to serve the asset files on.', config('larasset.port', 3000)],
             ['larasset-env', null, InputOption::VALUE_OPTIONAL, 'Specifies the assets environment to run this server under (test/development/production).', 'development'],
             ['larasset-environment', null, InputOption::VALUE_OPTIONAL, "DEPRECATED: Use '--larasset-env' option instead."],
 
