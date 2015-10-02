@@ -120,6 +120,6 @@ if (! function_exists('humanize')) {
      */
     function humanize($value)
     {
-        return ucfirst(snake_case(camel_case($value), ' '));
+        return ucfirst(preg_replace('/_/', ' ', snake_case(camel_case($value))));
     }
 }
