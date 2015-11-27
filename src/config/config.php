@@ -1,7 +1,16 @@
 <?php
 
 return [
-
+        /**
+        * Changing the default port
+        *
+        * By defaut this is set as 3000, the same as the default listening port
+        * it can be handy if you use the  --larasset-port  option in php artisan server,
+        * or if serving through a proxy pass or any other special configurations. If not
+        * using a special port, one can set port 80.
+        */
+        'port' => 3000,
+        
         /**
          * Changing the assets Path
          *

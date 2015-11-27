@@ -11,7 +11,7 @@ class Asset
 
     protected $args = [];
     protected $manifests = [];
-    protected $port = 3000; // TODO: Set this value in a config option
+    protected $port;
     protected $assetsPrefix;
     protected $assetsHost;
 
@@ -30,6 +30,8 @@ class Asset
         $this->assetsHost = function () {
             return config('larasset.host');
         };
+
+        $this->port = config('larasset.port',3000);
     }
 
     public function manifest($args = null)
@@ -186,7 +188,8 @@ class Asset
 
         $protocol = Request::secure() ? "https://" : "http://";
         if (App::environment() !== (getenv('ASSETS_ENV') ?: 'production')) {
-            $assetHost = $assetHost ?: $protocol.$this->getHostname().":".$this->port;
+            $assetHost = $assetHost ?: $protocol.$this->getHostname();
+            if($this->port!==80) $assetHost.=":".$this->port;
             $assetLocation = $assetHost.$assetPrefix;
         } else {
             $assetLocation = $assetHost.$assetPrefix;
