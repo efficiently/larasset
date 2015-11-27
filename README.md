@@ -133,8 +133,9 @@ option, like so:
 
 Changelog
 ---------
-### [1.1-dev](https://github.com/efficiently/larasset/tree/1.1)
+### [1.1.0](https://github.com/efficiently/larasset/tree/1.1.1)
  * Laravel 5.1 support!
+ * CoffeeScript compile now the JavaScript without the top-level function safety wrapper (non-bare mode) via [`larasset-js` 1.2.0](https://github.com/efficiently/larasset-js/tree/1.2.0)
  * [ECMAScript 2015](http://ecma-international.org/ecma-262/6.0) (ES6) support with [Babel](http://babeljs.io/) via [`larasset-js` 1.1.1](https://github.com/efficiently/larasset-js/tree/1.1.1)
  * Add the `humanize()` function helper to fix the `image_tag()` helper (fix #15).
  * Add a `larasset.port` config option.
