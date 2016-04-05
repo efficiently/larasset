@@ -22,7 +22,8 @@
         "versioning",
         "laravel",
         "laravel 5",
-        "laravel 5.1"
+        "laravel 5.1",
+        "laravel 5.2"
     ],
     "license": "MIT",
     "authors": [
@@ -33,7 +34,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "laravelcollective/html": "~5.0.0||~5.1.0",
+        "laravelcollective/html": "~5.0.0||~5.1.0||~5.2.0",
         "efficiently/jquery-laravel": "~2.0.0"
     },
     "require-dev": {
