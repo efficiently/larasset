@@ -1,9 +1,9 @@
 Larasset
 ========
 
-[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=1.1)](https://travis-ci.org/efficiently/larasset)
+[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=1.2)](https://travis-ci.org/efficiently/larasset)
 
-The Asset Pipeline for **Laravel 5.1** !
+The Asset Pipeline for **Laravel 5.1 & 5.2** !
 
 The asset pipeline provides a framework to concatenate and minify or compress
 JavaScript and CSS assets. It also adds the ability to write these assets in
@@ -50,7 +50,7 @@ Installation
 2. Install Larasset package with composer:
 
     ```sh
-    composer require efficiently/larasset:1.1.*
+    composer require efficiently/larasset:1.2.*
     ```
 
 3. Turn on your application debug mode, create or edit the `config/app.php` file:
@@ -133,6 +133,9 @@ option, like so:
 
 Changelog
 ---------
+### [1.2.x](https://github.com/efficiently/larasset/tree/1.2)
+ * Laravel 5.2 support!
+
 ### [1.1.0](https://github.com/efficiently/larasset/tree/1.1.0)
  * Laravel 5.1 support!
  * CoffeeScript compile now the JavaScript without the top-level function safety wrapper (non-bare mode) via [`larasset-js` 1.2.0](https://github.com/efficiently/larasset-js/tree/1.2.0)
