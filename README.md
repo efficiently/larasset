@@ -133,7 +133,7 @@ option, like so:
 
 Changelog
 ---------
-### [1.2.x](https://github.com/efficiently/larasset/tree/1.2)
+### [1.2.0](https://github.com/efficiently/larasset/tree/1.2.0)
  * Laravel 5.2 support!
 
 ### [1.1.0](https://github.com/efficiently/larasset/tree/1.1.0)
