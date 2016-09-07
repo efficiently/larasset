@@ -15,8 +15,8 @@ install: travis_retry composer install --prefer-source --no-interaction
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - wget http://selenium-release.storage.googleapis.com/2.47/selenium-server-standalone-2.47.1.jar
-  - java -jar selenium-server-standalone-2.47.1.jar -port 4444 &
+  - wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
+  - java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
   - chmod +x ./ci_script
 
 script: ./ci_script
