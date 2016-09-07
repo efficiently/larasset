@@ -1,9 +1,9 @@
 Larasset
 ========
 
-[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=1.2)](https://travis-ci.org/efficiently/larasset)
+[![Build Status](https://travis-ci.org/efficiently/larasset.svg?branch=1.3)](https://travis-ci.org/efficiently/larasset)
 
-The Asset Pipeline for **Laravel 5.1 & 5.2** !
+The Asset Pipeline for **Laravel 5.1, 5.2 & 5.3** !
 
 The asset pipeline provides a framework to concatenate and minify or compress
 JavaScript and CSS assets. It also adds the ability to write these assets in
@@ -133,6 +133,9 @@ option, like so:
 
 Changelog
 ---------
+### [1.3.x](https://github.com/efficiently/larasset/tree/1.3)
+ * Laravel 5.3 support!
+
 ### [1.2.0](https://github.com/efficiently/larasset/tree/1.2.0)
  * Laravel 5.2 support!
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 cd ..
-git clone https://github.com/efficiently/jquery-laravel.git --branch 2.1
-git clone https://github.com/efficiently/laravel_larasset_app.git --branch 1.2
+git clone https://github.com/efficiently/jquery-laravel.git --branch 2.2
+git clone https://github.com/efficiently/laravel_larasset_app.git --branch 1.3
 
 cd laravel_larasset_app
 composer self-update
